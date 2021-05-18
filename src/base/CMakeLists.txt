@@ -2,6 +2,8 @@
 set(SOURCES
     file.cpp
     file.h
+    process.cpp
+    process.h
     )
 set(TEST_FILES
     )
