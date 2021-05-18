@@ -4,6 +4,8 @@ set(SOURCES
     file.h
     process.cpp
     process.h
+    zip.cpp
+    zip.h
     )
 set(TEST_FILES
     )
@@ -14,6 +16,9 @@ add_library(base-static STATIC
 target_link_libraries(base-static
     Qt5::Core
     Qt5::Gui
+
+    # Required by zip
+    Qt5::GuiPrivate
     )
 
 if (BUILD_TESTING)
