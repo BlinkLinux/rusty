@@ -23,6 +23,8 @@ set(SOURCE_FILES
 
     rusty/gui/color.cpp
     rusty/gui/color.h
+    rusty/gui/image_color.cpp
+    rusty/gui/image_color.h
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
 
