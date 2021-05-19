@@ -6,6 +6,7 @@
 
 #include <QDebug>
 #include <QFile>
+#include <QStandardPaths>
 
 namespace rusty {
 
@@ -63,6 +64,14 @@ bool writeBinaryFile(const QString& path, const QByteArray& bytes) {
   file.write(bytes);
   file.close();
   return true;
+}
+
+QDir getCacheDir() {
+  QDir dir = QStandardPaths::standardLocations(QStandardPaths::CacheLocation).first();
+  if (!dir.exists()) {
+    dir.mkpath(".");
+  }
+  return dir;
 }
 
 }  // namespace rusty

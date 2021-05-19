@@ -7,9 +7,13 @@ find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+add_subdirectory(rusty/third_party/CuteLogger)
+
 set(SOURCE_FILES
     rusty/base/file.cpp
     rusty/base/file.h
+    rusty/base/log_manager.cpp
+    rusty/base/log_manager.h
     rusty/base/process.cpp
     rusty/base/process.h
     rusty/base/zip.h
