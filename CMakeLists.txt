@@ -7,9 +7,12 @@ find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+add_subdirectory(rusty/third_party/breakpad)
 add_subdirectory(rusty/third_party/CuteLogger)
 
 set(SOURCE_FILES
+    rusty/base/crash_reporter.cpp
+    rusty/base/crash_reporter.h
     rusty/base/file.cpp
     rusty/base/file.h
     rusty/base/log_manager.cpp
@@ -28,6 +31,9 @@ set(LINK_LIBS
     Qt5::Gui
     Qt5::GuiPrivate
     Qt5::Svg
+
+    breakpad_static
+    CuteLogger
     )
 
 add_library(rusty SHARED
