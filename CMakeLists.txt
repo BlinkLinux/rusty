@@ -20,10 +20,15 @@ set(SOURCE_FILES
     rusty/base/process.cpp
     rusty/base/process.h
     rusty/base/zip.h
+
+    rusty/gui/theme_file.cpp
+    rusty/gui/theme_file.h
     )
 
 set(TEST_FILES
     rusty/tests/rusty_test_main.cpp
+
+    rusty/gui/theme_file_test.cpp
     )
 
 set(LINK_LIBS
