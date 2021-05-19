@@ -7,9 +7,6 @@ find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-# Set current directory as root of header files.
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
 set(SOURCE_FILES
     rusty/base/file.cpp
     rusty/base/file.h
@@ -34,12 +31,18 @@ add_library(rusty SHARED
 target_link_libraries(rusty
     ${LINK_LIBS}
     )
+target_include_directories(rusty
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+    )
 
 add_library(rusty-static STATIC
     ${SOURCE_FILES}
     )
 target_link_libraries(rusty-static
     ${LINK_LIBS}
+    )
+target_include_directories(rusty-static
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
     )
 
 if (BUILD_TESTING)
@@ -53,4 +56,4 @@ if (BUILD_TESTING)
       rusty-static
       )
   add_test(rusty-tests rusty-tests)
-endif()
+endif ()
