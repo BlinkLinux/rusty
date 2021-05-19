@@ -21,23 +21,26 @@ class LogManager {
 
   /**
    * Enable file logging.
-   *
-   * Default log file is based on current application name. That is:
-   * $HOME/.cache/ORGANIZATION_NAME/APPLICATION_NAME/APPLICATION_NAME.log
-   * or $HOME/.cache/APPLICATION_NAME/APPLICATION_NAME.log if application
-   * organization name is not set.
    */
   void registerFileLog();
 
+  /**
+   * @param file_limit, rolling log file limits
+   */
+  void registerFileLog(int file_limit);
 
   /**
    * Set log format for all of registered log appender.
+   *
    * @param format
    */
   void setLogFormat(const QString& format);
 
   /**
    * Set absolute path to log file.
+   * Default is app cache dir. That is $HOME/.cache/ORGANIZATION_NAME/APPLICATION_NAME/APPLICATION_NAME.log
+   *  or $HOME/.cache/APPLICATION_NAME/APPLICATION_NAME.log if organization name is not set.
+   *
    * @param filepath
    */
   void setLogFilepath(const QString& filepath);

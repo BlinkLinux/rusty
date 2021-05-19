@@ -74,4 +74,19 @@ QDir getCacheDir() {
   return dir;
 }
 
+QDir concatDir(const QDir& parent_dir, const QString& folder_name) {
+  if (!parent_dir.exists(folder_name)) {
+    parent_dir.mkpath(folder_name);
+  }
+  return QDir(parent_dir.filePath(folder_name));
+}
+
+bool createDirs(const QString& dir) {
+  return QDir(dir).mkpath(".");
+}
+
+bool createParentDirs(const QString& filepath) {
+  return QFileInfo(filepath).absoluteDir().mkpath(".");
+}
+
 }  // namespace rusty

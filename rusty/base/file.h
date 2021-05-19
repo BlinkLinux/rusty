@@ -20,6 +20,12 @@ bool writeBinaryFile(const QString& path, const QByteArray& bytes);
 
 QDir getCacheDir();
 
+QDir concatDir(const QDir& parent_dir, const QString& folder_name);
+
+bool createDirs(const QString& dir);
+
+bool createParentDirs(const QString& filepath);
+
 }  // namespace rusty
 
 #endif  // RUSTY_RUSTY_BASE_FILE_H_
