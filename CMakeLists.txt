@@ -45,15 +45,16 @@ set(LINK_LIBS
     CuteLogger
     )
 
-add_library(rusty SHARED
-    ${SOURCE_FILES}
-    )
-target_link_libraries(rusty
-    ${LINK_LIBS}
-    )
-target_include_directories(rusty
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-    )
+# NOTE(Shaohua): Disable shared lib.
+#add_library(rusty SHARED
+#    ${SOURCE_FILES}
+#    )
+#target_link_libraries(rusty
+#    ${LINK_LIBS}
+#    )
+#target_include_directories(rusty
+#    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+#    )
 
 add_library(rusty-static STATIC
     ${SOURCE_FILES}
