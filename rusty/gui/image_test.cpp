@@ -14,11 +14,11 @@ TEST(GuiImageTest, TestColorizeImage) {
 
   const QImage play_pause_image = orig_image.copy(24, 0, 36, 36);
   ASSERT_FALSE(play_pause_image.isNull());
-  ASSERT_TRUE(play_pause_image.save("/tmp/play-pause.png"));
+  ASSERT_TRUE(play_pause_image.save("play-pause.png"));
 
   const QImage red_image = colorizeImage(play_pause_image, Qt::red);
   ASSERT_FALSE(red_image.isNull());
-  ASSERT_TRUE(red_image.save("/tmp/red-play-pause.png"));
+  ASSERT_TRUE(red_image.save("red-play-pause.png"));
 }
 
 TEST(GuiImageTest, TestColorizeImage2) {
@@ -27,7 +27,7 @@ TEST(GuiImageTest, TestColorizeImage2) {
 
   const QImage green_image = colorizeImage(orig_image, QColor("#adbcc3"), Qt::green);
   ASSERT_FALSE(green_image.isNull());
-  ASSERT_TRUE(green_image.save("/tmp/green-alien-icon.png"));
+  ASSERT_TRUE(green_image.save("green-alien-icon.png"));
 }
 
 }  // namespace rusty
