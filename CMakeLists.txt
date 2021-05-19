@@ -28,6 +28,7 @@ set(SOURCE_FILES
 set(TEST_FILES
     rusty/tests/rusty_test_main.cpp
 
+    rusty/gui/tests/tests.qrc
     rusty/gui/theme_file_test.cpp
     )
 
