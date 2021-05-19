@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_SRC_BASE_PROCESS_H_
-#define RUSTY_SRC_BASE_PROCESS_H_
+#ifndef RUSTY_RUSTY_BASE_PROCESS_H_
+#define RUSTY_RUSTY_BASE_PROCESS_H_
 
 #include <QStringList>
 
@@ -14,4 +14,4 @@ bool getCommandOutput(const QString& cmd, const QStringList& args, QString& outp
 
 }  // namespace rusty
 
-#endif  // RUSTY_SRC_BASE_PROCESS_H_
+#endif  // RUSTY_RUSTY_BASE_PROCESS_H_

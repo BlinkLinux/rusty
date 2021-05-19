@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_SRC_BASE_FILE_H_
-#define RUSTY_SRC_BASE_FILE_H_
+#ifndef RUSTY_RUSTY_BASE_FILE_H_
+#define RUSTY_RUSTY_BASE_FILE_H_
 
 #include <QString>
 
@@ -19,4 +19,4 @@ bool writeBinaryFile(const QString& path, const QByteArray& bytes);
 
 }  // namespace rusty
 
-#endif  // RUSTY_SRC_BASE_FILE_H_
+#endif  // RUSTY_RUSTY_BASE_FILE_H_
