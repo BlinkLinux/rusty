@@ -25,6 +25,9 @@ set(SOURCE_FILES
     rusty/gui/color.h
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
+
+    rusty/widgets/utils.cpp
+    rusty/widgets/utils.h
     )
 
 set(TEST_FILES
@@ -40,6 +43,7 @@ set(LINK_LIBS
     Qt5::Gui
     Qt5::GuiPrivate
     Qt5::Svg
+    Qt5::Widgets
 
     breakpad_static
     CuteLogger
