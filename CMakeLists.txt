@@ -14,8 +14,9 @@ set(SOURCE_FILES
     rusty/base/process.h
     rusty/base/zip.h
     )
-set(TEST_FILES
 
+set(TEST_FILES
+    rusty/tests/rusty_test_main.cpp
     )
 
 set(LINK_LIBS
@@ -46,12 +47,16 @@ target_include_directories(rusty-static
     )
 
 if (BUILD_TESTING)
+  # TODO(Shaohua): Replace with embedded version.
+  find_package(GTest REQUIRED)
   add_executable(rusty-tests
       ${TEST_FILES}
       )
   target_link_libraries(rusty-tests
       Qt5::Core
       Qt5::Svg
+
+      GTest::GTest
 
       rusty-static
       )
