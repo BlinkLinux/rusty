@@ -24,6 +24,11 @@ class CrashReporter {
   CrashReporterPrivate* p_;
 };
 
+/**
+ * Run into segmentation fault.
+ */
+void raiseSegmentFault();
+
 }  // namespace rusty
 
 #endif  // RUSTY_RUSTY_BASE_CRASH_REPORTER_H_

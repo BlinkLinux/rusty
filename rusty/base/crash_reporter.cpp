@@ -61,4 +61,9 @@ const QString& CrashReporter::dumpDir() const {
   return this->p_->dump_dir;
 }
 
+void raiseSegmentFault() {
+  volatile int* a = (int*)(nullptr);
+  *a = 1;
+}
+
 }  // namespace rusty
