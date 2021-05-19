@@ -1,0 +1,8 @@
+[submodule "src/third_party/CuteLogger"]
+	path = src/third_party/CuteLogger
+	url = https://github.com/RustyProject/CuteLogger
+	branch = rusty
+[submodule "src/third_party/breakpad"]
+	path = src/third_party/breakpad
+	url = https://github.com/RustyProject/breakpad
+	branch = rusty
