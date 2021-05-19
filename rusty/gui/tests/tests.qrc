@@ -1,6 +1,8 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-  <qresource prefix="/tests">
+  <qresource prefix="/tests/gui">
+    <file>alien-icon.png</file>
+    <file>color-buttons.png</file>
     <file>night-theme.css</file>
     <file>flat-button.css</file>
   </qresource>

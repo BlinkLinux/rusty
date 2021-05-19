@@ -23,8 +23,8 @@ set(SOURCE_FILES
 
     rusty/gui/color.cpp
     rusty/gui/color.h
-    rusty/gui/image_color.cpp
-    rusty/gui/image_color.h
+    rusty/gui/image.cpp
+    rusty/gui/image.h
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
 
@@ -36,6 +36,7 @@ set(TEST_FILES
     rusty/tests/rusty_test_main.cpp
 
     rusty/gui/color_test.cpp
+    rusty/gui/image_test.cpp
     rusty/gui/tests/tests.qrc
     rusty/gui/theme_file_test.cpp
     )
