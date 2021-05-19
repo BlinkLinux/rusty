@@ -21,6 +21,8 @@ set(SOURCE_FILES
     rusty/base/process.h
     rusty/base/zip.h
 
+    rusty/gui/color.cpp
+    rusty/gui/color.h
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
     )
@@ -28,6 +30,7 @@ set(SOURCE_FILES
 set(TEST_FILES
     rusty/tests/rusty_test_main.cpp
 
+    rusty/gui/color_test.cpp
     rusty/gui/tests/tests.qrc
     rusty/gui/theme_file_test.cpp
     )

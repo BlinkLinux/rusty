@@ -9,7 +9,7 @@
 
 namespace rusty {
 
-TEST(ThemeTest, TestReadTheme) {
+TEST(GuiThemeTest, TestReadTheme) {
   const QString content = readThemeFile(":/tests/night-theme.css");
   ASSERT_FALSE(content.isEmpty());
   qDebug() << qPrintable(content);
