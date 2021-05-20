@@ -12,7 +12,7 @@ namespace rusty {
 class RustyStyle : public QProxyStyle {
   Q_OBJECT
  public:
-  explicit RustyStyle(QObject* parent = nullptr);
+  explicit RustyStyle(QStyle* style = nullptr);
   ~RustyStyle() override = default;
 };
 

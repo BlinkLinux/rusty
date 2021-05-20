@@ -6,7 +6,7 @@
 
 namespace rusty {
 
-RustyStyle::RustyStyle(QObject* parent) : QProxyStyle(parent) {
+RustyStyle::RustyStyle(QStyle* style) : QProxyStyle(style) {
 
 }
 

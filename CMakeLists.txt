@@ -51,6 +51,7 @@ set(LINK_LIBS
     Qt5::Svg
     Qt5::Widgets
 
+    adwaita-qt-static
     breakpad_static
     CuteLogger
     )
