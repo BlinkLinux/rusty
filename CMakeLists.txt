@@ -7,6 +7,7 @@ find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+add_subdirectory(rusty/third_party/adwaita-qt)
 add_subdirectory(rusty/third_party/breakpad)
 add_subdirectory(rusty/third_party/CuteLogger)
 
