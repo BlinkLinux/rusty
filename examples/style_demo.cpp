@@ -5,13 +5,15 @@
 #include <QApplication>
 #include <QDebug>
 #include <QStyleFactory>
+#include <rusty/widgets/adwaita_style.h>
 
 #include "edit/code_editor.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
   qDebug() << "available styles:" << QStyleFactory::keys();
-  QApplication::setStyle("Adwaita");
+//  QApplication::setStyle("Adwaita");
+  QApplication::setStyle(new rusty::AdwaitaStyle(true));
 
   CodeEditor editor;
   editor.setWindowTitle("Code Editor Example");

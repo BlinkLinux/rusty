@@ -24,4 +24,5 @@ add_executable(style-demo
     )
 target_link_libraries(style-demo
     Qt5::Widgets
+    rusty-static
     )
