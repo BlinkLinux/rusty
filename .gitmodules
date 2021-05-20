@@ -6,3 +6,7 @@
 	path = rusty/third_party/breakpad
 	url = https://github.com/RustyProject/breakpad
 	branch = rusty
+[submodule "rusty/third_party/adwaita-qt"]
+	path = rusty/third_party/adwaita-qt
+	url = https://github.com/RustyProject/adwaita-qt
+	branch = rusty
