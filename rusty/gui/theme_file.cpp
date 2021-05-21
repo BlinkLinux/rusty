@@ -22,6 +22,9 @@ bool readThemeFile(const QRegularExpression& pattern, const QString& file, QStri
 
   QStringList lines = content.split(QChar('\n'));
   for (const QString& line : lines) {
+    if (line.startsWith("/*") && line.endsWith("*/")) {
+      continue;
+    }
     const auto match = pattern.match(line);
     if (match.hasMatch()) {
       QStringList new_lines;
