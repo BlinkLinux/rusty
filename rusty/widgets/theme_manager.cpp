@@ -9,8 +9,8 @@
 namespace rusty {
 namespace {
 
-constexpr const char* kThemeDark = "dark";
-constexpr const char* kThemeLight = "light";
+constexpr const char* kDarkThemeName = "dark";
+constexpr const char* kLightThemeName = "light";
 constexpr const char* kThemeManagerIcon = "_r_theme_manager_icon_";
 
 }  // namespace
@@ -27,14 +27,14 @@ ThemeManager& ThemeManager::instance() {
 }
 
 bool ThemeManager::updateIconPath(QString& icon_path, ThemeManager::ThemeType theme_type) {
-  if (theme_type == ThemeType::kDark) {
-    if (icon_path.contains(kThemeLight)) {
-      icon_path.replace(kThemeLight, kThemeDark);
+  if (theme_type == ThemeType::kDarkTheme) {
+    if (icon_path.contains(kLightThemeName)) {
+      icon_path.replace(kLightThemeName, kDarkThemeName);
       return true;
     }
   } else {
-    if (icon_path.contains(kThemeDark)) {
-      icon_path.replace(kThemeDark, kThemeLight);
+    if (icon_path.contains(kDarkThemeName)) {
+      icon_path.replace(kDarkThemeName, kLightThemeName);
       return true;
     }
   }

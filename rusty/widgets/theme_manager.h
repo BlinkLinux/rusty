@@ -16,8 +16,8 @@ class ThemeManager : public QObject {
   Q_PROPERTY(ThemeType themeType READ themeType WRITE setThemeType NOTIFY themeTypeChanged);
  public:
   enum ThemeType {
-    kLight,
-    kDark,
+    kLightTheme,
+    kDarkTheme,
   };
   Q_ENUM(ThemeType);
 
