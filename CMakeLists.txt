@@ -30,6 +30,8 @@ set(SOURCE_FILES
     rusty/gui/theme_file.h
 
     rusty/widgets/adwaita_style.h
+    rusty/widgets/theme_manager.cpp
+    rusty/widgets/theme_manager.h
     rusty/widgets/rusty_style.cpp
     rusty/widgets/rusty_style.h
     rusty/widgets/utils.cpp
