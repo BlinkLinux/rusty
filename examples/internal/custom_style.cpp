@@ -11,10 +11,17 @@ CustomStyle::CustomStyle(bool dark) : AdwaitaStyle(dark) {
 }
 
 int CustomStyle::pixelMetric(QStyle::PixelMetric metric, const QStyleOption* option, const QWidget* widget) const {
-  if (metric == QStyle::PM_SmallIconSize) {
-    return 46;
+  switch (metric) {
+    case QStyle::PM_SmallIconSize: {
+      return 46;
+    }
+    case QStyle::PM_MenuHMargin: {
+      return 4;
+    }
+    default: {
+      return AdwaitaStyle::pixelMetric(metric, option, widget);
+    }
   }
-  return AdwaitaStyle::pixelMetric(metric, option, widget);
 }
 
 }  // namespace rusty

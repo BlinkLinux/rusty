@@ -99,8 +99,9 @@ void WidgetsWindow::initMenuTab() {
   menu->addAction(QIcon(":/resources/combo-box-up-arrow.svg"), "Up");
   menu->addAction(QIcon(":/resources/combo-box-down-arrow.svg"), "Down");
 
-  auto* custom_style = new CustomStyle(false);
-  menu->setStyle(custom_style);
+//  auto* custom_style = new CustomStyle(false);
+//  menu->setStyle(custom_style);
+  menu->setStyleSheet("QMenu::icon {padding-left: 35px;}");
 }
 
 }  // namespace rusty
