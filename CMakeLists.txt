@@ -29,6 +29,8 @@ set(SOURCE_FILES
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
 
+    rusty/widgets/nav/tab_button.cpp
+    rusty/widgets/nav/tab_button.h
     rusty/widgets/adwaita_style.h
     rusty/widgets/theme_manager.cpp
     rusty/widgets/theme_manager.h
