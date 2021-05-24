@@ -51,6 +51,9 @@ void WidgetsWindow::initLogTab() {
   main_layout->addWidget(button);
   connect(button, &QPushButton::clicked, [=]() {
     const QString text = edit->text();
+    if (text.isEmpty()) {
+      return;
+    }
     const auto user_data = log_level_box->itemData(log_level_box->currentIndex(), Qt::UserRole).toUInt();
     const auto level = static_cast<LogLevel>(user_data);
     switch (level) {

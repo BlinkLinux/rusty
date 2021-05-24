@@ -3,11 +3,13 @@
 // that can be found in the LICENSE file.
 
 #include <QApplication>
+#include <rusty/base/log_manager.h>
 
 #include "demo/widgets_window.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
+  rusty::LogManager::instance()->registerConsoleLog();
 
   rusty::WidgetsWindow window;
   window.show();
