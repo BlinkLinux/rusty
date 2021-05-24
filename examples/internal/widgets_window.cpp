@@ -11,6 +11,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include "internal/custom_style.h"
+
 namespace rusty {
 
 WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
@@ -85,15 +87,20 @@ void WidgetsWindow::initLogTab() {
 
 void WidgetsWindow::initMenuTab() {
   auto* tab = new QWidget();
-  this->addTab(tab, "Menu");
+  this->addTab(tab, "Custom Style");
   auto* main_layout = new QHBoxLayout();
   tab->setLayout(main_layout);
 
   auto* button = new QPushButton("Show Menu");
   main_layout->addWidget(button);
+
   auto* menu = new QMenu(this);
   button->setMenu(menu);
-  menu->addAction(QIcon(""), "Rectangle");
+  menu->addAction(QIcon(":/resources/combo-box-up-arrow.svg"), "Up");
+  menu->addAction(QIcon(":/resources/combo-box-down-arrow.svg"), "Down");
+
+  auto* custom_style = new CustomStyle(false);
+  menu->setStyle(custom_style);
 }
 
 }  // namespace rusty

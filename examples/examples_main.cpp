@@ -5,7 +5,7 @@
 #include <QApplication>
 #include <rusty/base/log_manager.h>
 
-#include "demo/widgets_window.h"
+#include "internal/widgets_window.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
