@@ -2,11 +2,12 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-#include "demo/widgets_window.h"
+#include "internal/widgets_window.h"
 
 #include <QComboBox>
 #include <QDebug>
 #include <QLineEdit>
+#include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -14,6 +15,7 @@ namespace rusty {
 
 WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
   this->initLogTab();
+  this->initMenuTab();
 }
 
 void WidgetsWindow::initLogTab() {
@@ -79,6 +81,19 @@ void WidgetsWindow::initLogTab() {
       }
     }
   });
+}
+
+void WidgetsWindow::initMenuTab() {
+  auto* tab = new QWidget();
+  this->addTab(tab, "Menu");
+  auto* main_layout = new QHBoxLayout();
+  tab->setLayout(main_layout);
+
+  auto* button = new QPushButton("Show Menu");
+  main_layout->addWidget(button);
+  auto* menu = new QMenu(this);
+  button->setMenu(menu);
+  menu->addAction(QIcon(""), "Rectangle");
 }
 
 }  // namespace rusty

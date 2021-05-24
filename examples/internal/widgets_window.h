@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_EXAMPLES_DEMO_WIDGETS_WINDOW_H_
-#define RUSTY_EXAMPLES_DEMO_WIDGETS_WINDOW_H_
+#ifndef RUSTY_EXAMPLES_INTERNAL_WIDGETS_WINDOW_H_
+#define RUSTY_EXAMPLES_INTERNAL_WIDGETS_WINDOW_H_
 
 #include <QTabWidget>
 
@@ -17,8 +17,9 @@ class WidgetsWindow : public QTabWidget {
 
  private:
   void initLogTab();
+  void initMenuTab();
 };
 
 }  // namespace
 
-#endif  // RUSTY_EXAMPLES_DEMO_WIDGETS_WINDOW_H_
+#endif  // RUSTY_EXAMPLES_INTERNAL_WIDGETS_WINDOW_H_
