@@ -7,7 +7,7 @@
 #include <QStyleFactory>
 #include <rusty/widgets/adwaita_style.h>
 
-#include "edit/code_editor.h"
+#include "examples/demo/code_editor.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
