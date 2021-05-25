@@ -7,17 +7,23 @@
 #include <QDebug>
 #include <QPainter>
 #include <QPainterPath>
+#include <rusty/widgets/theme_manager.h>
 
 namespace rusty {
 
-TabButton::TabButton(const QString& icon_path, const QString& text, QWidget* parent)
+TabButton::TabButton(const QString& icon_name, const QString& text, QWidget* parent)
     : QPushButton(text, parent),
-      icon_path_(icon_path),
-      pixmap_(icon_path),
-      checked_color_(QColor("#383f47")) {
+      pixmap_(icon_name) {
   this->setFlat(true);
   this->setCheckable(true);
   this->setFixedSize(51, 51);
+
+  rusty::ThemeManager::instance().registerWidget(this, icon_name, [=](bool changed, const QString& new_icon_name) {
+    if (changed) {
+      this->pixmap_.load(new_icon_name);
+      this->update();
+    }
+  });
 }
 
 void TabButton::paintEvent(QPaintEvent* event) {
@@ -26,7 +32,8 @@ void TabButton::paintEvent(QPaintEvent* event) {
 
   // Fill selected background.
   if (this->isChecked()) {
-    painter.fillRect(this->rect(), this->checked_color_);
+    const QColor bg_color = this->palette().color(QPalette::Window);
+    painter.fillRect(this->rect(), bg_color);
   } else {
     painter.setOpacity(0.6f);
   }
@@ -38,19 +45,15 @@ void TabButton::paintEvent(QPaintEvent* event) {
   constexpr int kTextTopMargin = 6;
   const QRect text_rect = this->rect().marginsRemoved(
       QMargins(0, kPixmapMargin + kTextTopMargin + pixmap_.height(), 0, 0));
-  const int text_flags = Qt::AlignHCenter;
+  constexpr int kTextFlags = Qt::AlignHCenter;
   QFont font(painter.font());
   font.setPixelSize(9);
   painter.setFont(font);
   QPen pen(painter.pen());
-  pen.setColor(Qt::white);
+  const QColor text_color = this->palette().color(QPalette::BrightText);
+  pen.setColor(text_color);
   painter.setPen(pen);
-  painter.drawText(text_rect, text_flags, this->text());
-}
-
-void TabButton::setCheckedColor(const QColor& color) {
-  this->checked_color_ = color;
-  this->update();
+  painter.drawText(text_rect, kTextFlags, this->text());
 }
 
 }  // namespace rusty

@@ -10,23 +10,16 @@
 namespace rusty {
 
 class TabButton : public QPushButton {
-  Q_OBJECT
-  Q_PROPERTY(QColor checkedColor READ checkedColor WRITE setCheckedColor)
+ Q_OBJECT
  public:
-  TabButton(const QString& icon_path, const QString& text, QWidget* parent = nullptr);
-
-  [[nodiscard]] const QColor& checkedColor() const { return this->checked_color_; }
-
- public slots:
-  void setCheckedColor(const QColor& color);
+  TabButton(const QString& icon_name, const QString& text, QWidget* parent = nullptr);
+  ~TabButton() override = default;
 
  protected:
   void paintEvent(QPaintEvent* event) override;
 
  private:
-  QString icon_path_;
   QPixmap pixmap_;
-  QColor checked_color_;
 };
 
 }  // namespace rusty
