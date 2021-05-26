@@ -6,13 +6,16 @@
 
 #include <QComboBox>
 #include <QDebug>
+#include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <rusty/widgets/nav/nav_bar.h>
+#include <rusty/widgets/menu_row_actions.h>
 
 #include "internal/custom_style.h"
+#include "resources/resources.h"
 
 namespace rusty {
 
@@ -20,6 +23,7 @@ WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
   this->initLogTab();
   this->initMenuTab();
   this->initNavBarTab();
+  this->initPopupTab();
 }
 
 void WidgetsWindow::initLogTab() {
@@ -98,8 +102,8 @@ void WidgetsWindow::initMenuTab() {
 
   auto* menu = new QMenu(this);
   button->setMenu(menu);
-  menu->addAction(QIcon(":/resources/combo-box-up-arrow.svg"), "Up");
-  menu->addAction(QIcon(":/resources/combo-box-down-arrow.svg"), "Down");
+  menu->addAction(QIcon(kResourcesComboBoxUpArrow), "Up");
+  menu->addAction(QIcon(kResourcesComboBoxDownArrow), "Down");
 
 //  auto* custom_style = new CustomStyle(false);
 //  menu->setStyle(custom_style);
@@ -139,6 +143,43 @@ void WidgetsWindow::initNavBarTab() {
   connect(clear_button, &QPushButton::clicked, [=]() {
     nav_bar->clearTabs();
   });
+}
+
+void WidgetsWindow::initPopupTab() {
+  auto* tab = new QWidget();
+  this->addTab(tab, "Popup");
+  auto* main_layout = new QVBoxLayout();
+  tab->setLayout(main_layout);
+
+  auto* open_button = new QPushButton(tr("Open"));
+  main_layout->addWidget(open_button);
+
+  auto* menu = new QMenu();
+  open_button->setMenu(menu);
+  auto* menu_layout = new QVBoxLayout();
+  menu->setLayout(menu_layout);
+
+  menu_layout->addWidget(new QLabel("Item 1"));
+  menu_layout->addWidget(new QLabel("Item 2"));
+  menu_layout->addWidget(new QLabel("Item 3"));
+  menu_layout->addWidget(new QPushButton("Click me"));
+
+  auto* text_button = new QPushButton("Texts");
+  main_layout->addWidget(text_button);
+  auto* text_menu = new QMenu();
+  text_button->setMenu(text_menu);
+  auto* row1 = new MenuRowActions();
+  row1->addButton(kResourcesComboBoxUpArrow, 0);
+  row1->addButton(kResourcesComboBoxDropDown, 1);
+  row1->addButton(kResourcesComboBoxDownArrow, 2);
+  connect(row1, &MenuRowActions::buttonClicked, [](int button_id) {
+    qDebug() << "menu row button clicked with id: " << button_id;
+  });
+  text_menu->addAction(row1);
+  auto* row2 = new MenuRowActions();
+  text_menu->addAction(row2);
+  text_menu->addAction("Item 2");
+  text_menu->addAction("Item 3");
 }
 
 }  // namespace rusty

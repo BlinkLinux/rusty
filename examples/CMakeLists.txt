@@ -3,6 +3,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SOURCE_FILES
     resources/resources.qrc
+    resources/resources.h
 
     internal/custom_style.cpp
     internal/custom_style.h
