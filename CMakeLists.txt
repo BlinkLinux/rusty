@@ -35,13 +35,18 @@ set(SOURCE_FILES
     rusty/widgets/nav/nav_bar.h
     rusty/widgets/nav/tab_button.cpp
     rusty/widgets/nav/tab_button.h
+
     rusty/widgets/adwaita_style.h
-    rusty/widgets/theme_manager.cpp
-    rusty/widgets/theme_manager.h
+    rusty/widgets/icon_button.cpp
+    rusty/widgets/icon_button.h
+    rusty/widgets/menu_row_actions.cpp
+    rusty/widgets/menu_row_actions.h
     rusty/widgets/rusty_style.cpp
     rusty/widgets/rusty_style.h
     rusty/widgets/text_button.cpp
     rusty/widgets/text_button.h
+    rusty/widgets/theme_manager.cpp
+    rusty/widgets/theme_manager.h
     rusty/widgets/utils.cpp
     rusty/widgets/utils.h
     )
