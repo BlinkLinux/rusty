@@ -31,6 +31,8 @@ set(SOURCE_FILES
 
     rusty/widgets/nav/left_panel_buttons.cpp
     rusty/widgets/nav/left_panel_buttons.h
+    rusty/widgets/nav/nav_bar.cpp
+    rusty/widgets/nav/nav_bar.h
     rusty/widgets/nav/tab_button.cpp
     rusty/widgets/nav/tab_button.h
     rusty/widgets/adwaita_style.h
@@ -38,6 +40,8 @@ set(SOURCE_FILES
     rusty/widgets/theme_manager.h
     rusty/widgets/rusty_style.cpp
     rusty/widgets/rusty_style.h
+    rusty/widgets/text_button.cpp
+    rusty/widgets/text_button.h
     rusty/widgets/utils.cpp
     rusty/widgets/utils.h
     )
