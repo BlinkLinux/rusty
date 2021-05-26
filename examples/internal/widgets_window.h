@@ -18,6 +18,7 @@ class WidgetsWindow : public QTabWidget {
  private:
   void initLogTab();
   void initMenuTab();
+  void initNavBarTab();
 };
 
 }  // namespace

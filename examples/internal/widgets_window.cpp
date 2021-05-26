@@ -10,6 +10,7 @@
 #include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <rusty/widgets/nav/nav_bar.h>
 
 #include "internal/custom_style.h"
 
@@ -18,6 +19,7 @@ namespace rusty {
 WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
   this->initLogTab();
   this->initMenuTab();
+  this->initNavBarTab();
 }
 
 void WidgetsWindow::initLogTab() {
@@ -102,6 +104,41 @@ void WidgetsWindow::initMenuTab() {
 //  auto* custom_style = new CustomStyle(false);
 //  menu->setStyle(custom_style);
   menu->setStyleSheet("QMenu::icon {padding-left: 35px;}");
+}
+
+
+void WidgetsWindow::initNavBarTab() {
+  auto* tab = new QWidget();
+  this->addTab(tab, "NavBar");
+  auto* main_layout = new QVBoxLayout();
+  tab->setLayout(main_layout);
+
+  auto* nav_bar = new NavBar();
+  connect(nav_bar, &NavBar::levelChanged, [](int level) {
+    qDebug() << "level changed:" << level;
+  });
+  main_layout->addWidget(nav_bar);
+
+  auto* content_box = new QHBoxLayout();
+  main_layout->addLayout(content_box);
+
+  auto* edit = new QLineEdit();
+  content_box->addWidget(edit);
+
+  auto* add_button = new QPushButton("Add Tab");
+  content_box->addWidget(add_button);
+  connect(add_button, &QPushButton::clicked, [=]() {
+    const QString text = edit->text();
+    if (!text.isEmpty()) {
+      nav_bar->pushTab(text);
+    }
+  });
+
+  auto* clear_button = new QPushButton("Clear Tabs");
+  content_box->addWidget(clear_button);
+  connect(clear_button, &QPushButton::clicked, [=]() {
+    nav_bar->clearTabs();
+  });
 }
 
 }  // namespace rusty
