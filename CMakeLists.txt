@@ -37,6 +37,8 @@ set(SOURCE_FILES
     rusty/widgets/nav/tab_button.h
 
     rusty/widgets/adwaita_style.h
+    rusty/widgets/grayscale_effect.cpp
+    rusty/widgets/grayscale_effect.h
     rusty/widgets/icon_button.cpp
     rusty/widgets/icon_button.h
     rusty/widgets/menu_row_actions.cpp
