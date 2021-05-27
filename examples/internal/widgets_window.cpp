@@ -13,6 +13,7 @@
 #include <QVBoxLayout>
 #include <rusty/widgets/nav/nav_bar.h>
 #include <rusty/widgets/menu_row_actions.h>
+#include <rusty/widgets/grayscale_effect.h>
 
 #include "internal/custom_style.h"
 #include "resources/resources.h"
@@ -24,6 +25,7 @@ WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
   this->initMenuTab();
   this->initNavBarTab();
   this->initPopupTab();
+  this->initGrayscaleTab();
 }
 
 void WidgetsWindow::initLogTab() {
@@ -180,6 +182,26 @@ void WidgetsWindow::initPopupTab() {
   text_menu->addAction(row2);
   text_menu->addAction("Item 2");
   text_menu->addAction("Item 3");
+}
+
+void WidgetsWindow::initGrayscaleTab() {
+  auto* tab = new QWidget();
+  this->addTab(tab, "Grayscale");
+  auto* main_layout = new QVBoxLayout();
+  tab->setLayout(main_layout);
+
+  auto* img = new QLabel();
+  img->setPixmap(QPixmap(kResourcesReceptor));
+  main_layout->addWidget(img);
+  auto* grayscale_effect = new GrayscaleEffect(this);
+  grayscale_effect->setEnabled(false);
+  img->setGraphicsEffect(grayscale_effect);
+
+  auto* button = new QPushButton("Toggle grayscale");
+  button->setCheckable(true);
+  connect(button, &QPushButton::toggled,
+          grayscale_effect, &GrayscaleEffect::setEnabled);
+  main_layout->addWidget(button);
 }
 
 }  // namespace rusty

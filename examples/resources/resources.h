@@ -10,6 +10,7 @@ namespace rusty {
 constexpr const char* kResourcesComboBoxDownArrow = ":/resources/combo-box-down-arrow.svg";
 constexpr const char* kResourcesComboBoxDropDown = ":/resources/combo-box-dropdown.svg";
 constexpr const char* kResourcesComboBoxUpArrow = ":/resources/combo-box-up-arrow.svg";
+constexpr const char* kResourcesReceptor = ":/resources/receptor.svg";
 
 }  // namespace rusty
 
