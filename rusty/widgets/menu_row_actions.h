@@ -5,6 +5,7 @@
 #ifndef RUSTY_RUSTY_WIDGETS_MENU_ROW_ACTIONS_H_
 #define RUSTY_RUSTY_WIDGETS_MENU_ROW_ACTIONS_H_
 
+#include <QPushButton>
 #include <QWidget>
 #include <QWidgetAction>
 
@@ -16,7 +17,7 @@ class MenuRowActions : public QWidgetAction {
   explicit MenuRowActions(QObject* parent = nullptr);
   ~MenuRowActions() override = default;
 
-  void addButton(const QString& icon_path, int button_id);
+  QPushButton* addButton(const QString& icon_path, int button_id);
 
  signals:
   void buttonClicked(int button_id);
