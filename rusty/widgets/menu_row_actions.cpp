@@ -25,7 +25,12 @@ QPushButton* MenuRowActions::addButton(const QString& icon_path, int button_id) 
   connect(icon_button, &IconButton::clicked, [=]() {
     emit this->buttonClicked(button_id);
   });
+  this->buttons_.insert(button_id, icon_button);
   return icon_button;
+}
+
+QPushButton* MenuRowActions::button(int button_id) {
+  return this->buttons_.value(button_id, nullptr);
 }
 
 QWidget* MenuRowActions::createWidget(QWidget* parent) {
