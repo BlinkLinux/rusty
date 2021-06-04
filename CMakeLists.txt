@@ -21,6 +21,15 @@ set(SOURCE_FILES
     rusty/base/process.cpp
     rusty/base/process.h
 
+    rusty/frames/delegates/software_license_delegate.cpp
+    rusty/frames/delegates/software_license_delegate.h
+    rusty/frames/models/license_parser.cpp
+    rusty/frames/models/license_parser.h
+    rusty/frames/models/software_license_model.cpp
+    rusty/frames/models/software_license_model.h
+    rusty/frames/software_license_window.cpp
+    rusty/frames/software_license_window.h
+
     rusty/gui/color.cpp
     rusty/gui/color.h
     rusty/gui/image.cpp
