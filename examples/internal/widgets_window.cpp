@@ -14,6 +14,7 @@
 #include <rusty/widgets/nav/nav_bar.h>
 #include <rusty/widgets/menu_row_actions.h>
 #include <rusty/widgets/grayscale_effect.h>
+#include <rusty/widgets/switch_button.h>
 
 #include "internal/custom_style.h"
 #include "resources/resources.h"
@@ -197,11 +198,15 @@ void WidgetsWindow::initGrayscaleTab() {
   grayscale_effect->setEnabled(false);
   img->setGraphicsEffect(grayscale_effect);
 
-  auto* button = new QPushButton("Toggle grayscale");
-  button->setCheckable(true);
+  auto* hbox_layout = new QHBoxLayout();
+  main_layout->addLayout(hbox_layout);
+  hbox_layout->addWidget(new QLabel("Toggle grayscale"));
+
+  auto* button = new SwitchButton();
   connect(button, &QPushButton::toggled,
           grayscale_effect, &GrayscaleEffect::setEnabled);
-  main_layout->addWidget(button);
+  hbox_layout->addWidget(button);
+  hbox_layout->addStretch();
 }
 
 }  // namespace rusty

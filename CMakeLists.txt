@@ -46,6 +46,8 @@ set(SOURCE_FILES
     rusty/widgets/rusty_style.h
     rusty/widgets/separator_line.cpp
     rusty/widgets/separator_line.h
+    rusty/widgets/switch_button.cpp
+    rusty/widgets/switch_button.h
     rusty/widgets/text_button.cpp
     rusty/widgets/text_button.h
     rusty/widgets/theme_manager.cpp

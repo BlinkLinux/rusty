@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
   rusty::LogManager::instance()->registerConsoleLog();
 
   rusty::WidgetsWindow window;
+  window.resize(960, 640);
   window.show();
 
   return QApplication::exec();
