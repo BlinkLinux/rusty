@@ -30,6 +30,33 @@ WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
   this->initGrayscaleTab();
 }
 
+void WidgetsWindow::paintEvent(QPaintEvent* event) {
+  QTabWidget::paintEvent(event);
+  const auto& p = this->palette();
+  qDebug() << "WindowText:" << p.color(QPalette::WindowText).name()
+           << "\nButton:" << p.color(QPalette::Button).name()
+           << "\nLight:" << p.color(QPalette::Light).name()
+           << "\nMid light:" << p.color(QPalette::Midlight).name()
+           << "\nDark:" << p.color(QPalette::Dark).name()
+           << "\nMid:" << p.color(QPalette::Mid).name()
+           << "\nText:" << p.color(QPalette::Text).name()
+           << "\nBright Text:" << p.color(QPalette::BrightText).name()
+           << "\nButton Text:" << p.color(QPalette::ButtonText).name()
+           << "\nBase:" << p.color(QPalette::Base).name()
+           << "\nWindow:" << p.color(QPalette::Window).name()
+           << "\nShadow:" << p.color(QPalette::Shadow).name()
+           << "\nHigh light:" << p.color(QPalette::Highlight).name()
+           << "\nHigh lighted text:" << p.color(QPalette::HighlightedText).name()
+           << "\nLink:" << p.color(QPalette::Link).name()
+           << "\nLink visited:" << p.color(QPalette::LinkVisited).name()
+           << "\nAlternate base:" << p.color(QPalette::AlternateBase).name()
+           << "\nNo rule:" << p.color(QPalette::NoRole).name()
+           << "\nTooltip base:" << p.color(QPalette::ToolTipBase).name()
+           << "\nTooltip text:" << p.color(QPalette::ToolTipText).name()
+           << "\nPlaceholder text:" << p.color(QPalette::PlaceholderText).name()
+           << "";
+}
+
 void WidgetsWindow::initMiscTab() {
   auto* tab = new QWidget();
   this->addTab(tab, "Misc");

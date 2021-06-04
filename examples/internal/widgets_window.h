@@ -15,6 +15,9 @@ class WidgetsWindow : public QTabWidget {
   explicit WidgetsWindow(QWidget* parent = nullptr);
   ~WidgetsWindow() override = default;
 
+ protected:
+  void paintEvent(QPaintEvent* event) override;
+
  private:
   void initMiscTab();
   void initLogTab();

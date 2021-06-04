@@ -7,8 +7,6 @@
 namespace rusty {
 namespace {
 
-constexpr const char* kDefaultBrush =  "#009688";
-constexpr const char* kDefaultThumb = "#d5d5d5";
 constexpr const qreal kCheckedOpacity = 0.5;
 constexpr const qreal kUncheckedOpacity = 0.38;
 
@@ -23,9 +21,6 @@ constexpr const int kOffsetEnd = kDefaultHeight;
 SwitchButton::SwitchButton(QWidget* parent)
     : QAbstractButton(parent),
       offset_(0),
-      thumb_(kDefaultThumb),
-      brush_(Qt::black),
-      opacity_(kUncheckedOpacity),
       animation_(new QPropertyAnimation(this, "offset", this)) {
   this->setCheckable(true);
   this->setFixedSize(kDefaultWidth, kDefaultHeight);
@@ -33,24 +28,35 @@ SwitchButton::SwitchButton(QWidget* parent)
 }
 
 void SwitchButton::paintEvent(QPaintEvent* event) {
-  Q_UNUSED(event);
+  Q_UNUSED(event)
 
+  const auto palette = this->palette();
   QPainter p(this);
   p.setPen(Qt::NoPen);
-  if (isEnabled()) {
-    p.setBrush(this->brush_);
-    p.setOpacity(this->opacity_);
+  if (this->isEnabled()) {
     p.setRenderHint(QPainter::Antialiasing, true);
+
+    if (this->isChecked()) {
+      p.setBrush(palette.color(QPalette::LinkVisited));
+    } else {
+      p.setBrush(palette.color(QPalette::Mid));
+    }
+
+//    QPen pen(p.pen());
+//    pen.setWidthF(0.5);
+//    pen.setColor(palette.color(QPalette::Shadow));
+//    pen.setStyle(Qt::SolidLine);
+//    p.setPen(pen);
     p.drawRoundedRect(this->rect(), kBorderRadius, kBorderRadius);
-    p.setBrush(this->thumb_);
-    p.setOpacity(1.0);
+
+    p.setBrush(palette.color(QPalette::Midlight));
     p.drawEllipse(QRectF(this->offset_, 0.0, kDefaultHeight, kDefaultHeight));
   } else {
     p.setBrush(Qt::black);
     p.setOpacity(0.12);
     p.drawRoundedRect(this->rect(), kBorderRadius, kBorderRadius);
     p.setOpacity(1.0);
-    p.setBrush(QColor("#BDBDBD"));
+    p.setBrush(palette.color(QPalette::Base));
     p.drawEllipse(QRectF(this->offset_, 0.0, kDefaultHeight, kDefaultHeight));
   }
 }
@@ -74,21 +80,13 @@ void SwitchButton::checkStateSet() {
 
 void SwitchButton::resetAnimation(bool is_checked) {
   if (is_checked) {
-    this->brush_.setColor(kDefaultBrush);
-    this->thumb_.setColor(this->brush_.color());
-    this->opacity_ = kCheckedOpacity;
-
-    this->animation_->setStartValue(kOffsetEnd);
-    this->animation_->setEndValue(0);
+    this->animation_->setStartValue(this->offset_);
+    this->animation_->setEndValue(kOffsetEnd);
     this->animation_->setDuration(kAnimationDuration);
     this->animation_->start();
   } else {
-    this->brush_.setColor(Qt::black);
-    this->thumb_.setColor(kDefaultThumb);
-    this->opacity_ = kUncheckedOpacity;
-
     this->animation_->setStartValue(this->offset_);
-    this->animation_->setEndValue(kOffsetEnd);
+    this->animation_->setEndValue(0);
     this->animation_->setDuration(kAnimationDuration);
     this->animation_->start();
   }

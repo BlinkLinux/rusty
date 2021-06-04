@@ -40,9 +40,6 @@ class SwitchButton : public QAbstractButton {
   void resetAnimation(bool is_checked);
 
   int offset_;
-  QBrush thumb_;
-  QBrush brush_;
-  qreal opacity_;
   QPropertyAnimation* animation_;
 };
 
