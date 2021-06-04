@@ -4,12 +4,14 @@
 
 #include <QApplication>
 #include <rusty/base/log_manager.h>
+#include <rusty/widgets/adwaita_style.h>
 
 #include "internal/widgets_window.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
   rusty::LogManager::instance()->registerConsoleLog();
+  QApplication::setStyle(new rusty::AdwaitaStyle(true));
 
   rusty::WidgetsWindow window;
   window.resize(960, 640);

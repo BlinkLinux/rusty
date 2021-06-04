@@ -12,19 +12,23 @@ constexpr const char* kDefaultThumb = "#d5d5d5";
 constexpr const qreal kCheckedOpacity = 0.5;
 constexpr const qreal kUncheckedOpacity = 0.38;
 
+constexpr const int kAnimationDuration = 120;
+constexpr const int kDefaultHeight = 25;
+constexpr const qreal kBorderRadius = kDefaultHeight * 0.5;
+constexpr const int kDefaultWidth = kDefaultHeight * 2;
+constexpr const int kOffsetEnd = kDefaultHeight;
+
 }  // namespace
 
 SwitchButton::SwitchButton(QWidget* parent)
     : QAbstractButton(parent),
-      x_(8),
-      y_(8),
-      height_(16),
-      margin_(4),
+      offset_(0),
       thumb_(kDefaultThumb),
       brush_(Qt::black),
       opacity_(kUncheckedOpacity),
       animation_(new QPropertyAnimation(this, "offset", this)) {
   this->setCheckable(true);
+  this->setFixedSize(kDefaultWidth, kDefaultHeight);
   this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }
 
@@ -37,21 +41,17 @@ void SwitchButton::paintEvent(QPaintEvent* event) {
     p.setBrush(this->brush_);
     p.setOpacity(this->opacity_);
     p.setRenderHint(QPainter::Antialiasing, true);
-    p.drawRoundedRect(QRect(margin_, margin_, width() - 2 * margin_,
-                            height() - 2 * margin_), 8.0, 8.0);
+    p.drawRoundedRect(this->rect(), kBorderRadius, kBorderRadius);
     p.setBrush(this->thumb_);
     p.setOpacity(1.0);
-    p.drawEllipse(QRectF(x_ - (height_ / 2.0), y_ - (height_ / 2.0),
-                         height(), height()));
+    p.drawEllipse(QRectF(this->offset_, 0.0, kDefaultHeight, kDefaultHeight));
   } else {
     p.setBrush(Qt::black);
     p.setOpacity(0.12);
-    p.drawRoundedRect(QRect(margin_, margin_, width() - 2 * margin_,
-                            height() - 2 * margin_), 8.0, 8.0);
+    p.drawRoundedRect(this->rect(), kBorderRadius, kBorderRadius);
     p.setOpacity(1.0);
     p.setBrush(QColor("#BDBDBD"));
-    p.drawEllipse(QRectF(x_ - (height_ / 2.0), y_ - (height_ / 2.0),
-                         height(), height()));
+    p.drawEllipse(QRectF(this->offset_, 0.0, kDefaultHeight, kDefaultHeight));
   }
 }
 
@@ -67,10 +67,6 @@ void SwitchButton::enterEvent(QEvent* event) {
   QAbstractButton::enterEvent(event);
 }
 
-QSize SwitchButton::sizeHint() const {
-  return QSize(static_cast<int>(2.4 * (height_ + margin_)), height_ + 2 * margin_);
-}
-
 void SwitchButton::checkStateSet() {
   QAbstractButton::checkStateSet();
   this->resetAnimation(this->isChecked());
@@ -82,18 +78,18 @@ void SwitchButton::resetAnimation(bool is_checked) {
     this->thumb_.setColor(this->brush_.color());
     this->opacity_ = kCheckedOpacity;
 
-    this->animation_->setStartValue(this->height_ / 2);
-    this->animation_->setEndValue(width() - this->height_);
-    this->animation_->setDuration(120);
+    this->animation_->setStartValue(kOffsetEnd);
+    this->animation_->setEndValue(0);
+    this->animation_->setDuration(kAnimationDuration);
     this->animation_->start();
   } else {
     this->brush_.setColor(Qt::black);
     this->thumb_.setColor(kDefaultThumb);
     this->opacity_ = kUncheckedOpacity;
 
-    this->animation_->setStartValue(this->x_);
-    this->animation_->setEndValue(this->height_ / 2);
-    this->animation_->setDuration(120);
+    this->animation_->setStartValue(this->offset_);
+    this->animation_->setEndValue(kOffsetEnd);
+    this->animation_->setDuration(kAnimationDuration);
     this->animation_->start();
   }
 }
@@ -101,9 +97,9 @@ void SwitchButton::resetAnimation(bool is_checked) {
 void SwitchButton::resizeEvent(QResizeEvent* event) {
   QWidget::resizeEvent(event);
   if (this->isChecked()) {
-    this->setOffset(width() - this->height_);
+    this->setOffset(kOffsetEnd);
   } else {
-    this->setOffset(this->height_ / 2);
+    this->setOffset(0);
   }
 }
 

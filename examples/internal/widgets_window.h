@@ -16,6 +16,7 @@ class WidgetsWindow : public QTabWidget {
   ~WidgetsWindow() override = default;
 
  private:
+  void initMiscTab();
   void initLogTab();
   void initMenuTab();
   void initNavBarTab();

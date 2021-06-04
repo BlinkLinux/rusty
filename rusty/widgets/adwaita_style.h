@@ -10,7 +10,14 @@
 namespace rusty {
 
 // Re-export adwaita style class.
-using AdwaitaStyle = Adwaita::Style;
+class AdwaitaStyle : public Adwaita::Style {
+  Q_OBJECT
+
+ public:
+  explicit AdwaitaStyle(bool night_mode);
+  ~AdwaitaStyle();
+
+};
 
 }  // namespace rusty
 

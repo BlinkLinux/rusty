@@ -17,13 +17,11 @@ class SwitchButton : public QAbstractButton {
   explicit SwitchButton(QWidget* parent = nullptr);
   ~SwitchButton() override = default;
 
-  [[nodiscard]] QSize sizeHint() const override;
-
-  [[nodiscard]] int offset() const { return this->x_; }
+  [[nodiscard]] int offset() const { return this->offset_; }
 
  public slots:
   void setOffset(int offset) {
-    this->x_ = offset;
+    this->offset_ = offset;
     this->update();
   }
 
@@ -41,10 +39,7 @@ class SwitchButton : public QAbstractButton {
  private:
   void resetAnimation(bool is_checked);
 
-  int x_;
-  int y_;
-  int height_;
-  int margin_;
+  int offset_;
   QBrush thumb_;
   QBrush brush_;
   qreal opacity_;

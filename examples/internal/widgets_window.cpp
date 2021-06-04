@@ -11,22 +11,44 @@
 #include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <rusty/widgets/nav/nav_bar.h>
-#include <rusty/widgets/menu_row_actions.h>
+#include <rusty/widgets/adwaita_style.h>
 #include <rusty/widgets/grayscale_effect.h>
+#include <rusty/widgets/menu_row_actions.h>
+#include <rusty/widgets/nav/nav_bar.h>
 #include <rusty/widgets/switch_button.h>
 
-#include "internal/custom_style.h"
 #include "resources/resources.h"
 
 namespace rusty {
 
 WidgetsWindow::WidgetsWindow(QWidget* parent) : QTabWidget(parent) {
+  this->initMiscTab();
   this->initLogTab();
   this->initMenuTab();
   this->initNavBarTab();
   this->initPopupTab();
   this->initGrayscaleTab();
+}
+
+void WidgetsWindow::initMiscTab() {
+  auto* tab = new QWidget();
+  this->addTab(tab, "Misc");
+  auto* main_layout = new QVBoxLayout();
+  tab->setLayout(main_layout);
+
+  auto* theme_layout = new QHBoxLayout();
+  main_layout->addLayout(theme_layout);
+
+  theme_layout->addWidget(new QLabel("Night mode:"));
+  auto* night_mode_switch = new SwitchButton();
+  theme_layout->addWidget(night_mode_switch);
+  theme_layout->addStretch();
+  connect(night_mode_switch, &SwitchButton::toggled, [](bool checked) {
+    QApplication::setStyle(new AdwaitaStyle(checked));
+  });
+
+  auto* null_switch = new SwitchButton();
+  theme_layout->addWidget(null_switch);
 }
 
 void WidgetsWindow::initLogTab() {
