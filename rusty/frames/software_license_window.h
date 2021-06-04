@@ -17,6 +17,9 @@ class SoftwareLicenseWindow : public QWidget {
   Q_OBJECT
  public:
   explicit SoftwareLicenseWindow(QWidget* parent = nullptr);
+  ~SoftwareLicenseWindow() override = default;
+
+  void setLicenseFile(const QString& file);
 
  signals:
   void requestOpenUrl(const QString& url);

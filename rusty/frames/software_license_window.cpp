@@ -53,6 +53,10 @@ void SoftwareLicenseWindow::initSignals() {
           this, &SoftwareLicenseWindow::onItemClicked);
 }
 
+void SoftwareLicenseWindow::setLicenseFile(const QString& file) {
+  this->model_->setLicenseFile(file);
+}
+
 void SoftwareLicenseWindow::onItemClicked(const QModelIndex& index) {
   if (!index.isValid()) {
     return;

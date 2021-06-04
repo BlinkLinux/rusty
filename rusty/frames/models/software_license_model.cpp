@@ -7,8 +7,6 @@
 #include <QBrush>
 #include <QDebug>
 
-#include "rusty/resources/misc/misc.h"
-
 namespace rusty {
 namespace {
 
@@ -21,6 +19,13 @@ constexpr const char* kLicenseUrl = "licenseUrl";
 }  // namespace
 
 SoftwareLicenseModel::SoftwareLicenseModel(QObject *parent) : QAbstractTableModel(parent) {
+
+}
+
+void SoftwareLicenseModel::setLicenseFile(const QString& file) {
+  this->beginResetModel();
+  this->list_ = parseAppLicense(file);
+  this->endResetModel();
 }
 
 int SoftwareLicenseModel::rowCount(const QModelIndex& parent) const {

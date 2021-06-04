@@ -24,6 +24,9 @@ class SoftwareLicenseModel : public QAbstractTableModel {
   Q_ENUM(RoleList);
 
   explicit SoftwareLicenseModel(QObject* parent = nullptr);
+  ~SoftwareLicenseModel() override = default;
+
+  void setLicenseFile(const QString& file);
 
   [[nodiscard]] int rowCount(const QModelIndex& parent) const override;
 
