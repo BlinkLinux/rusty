@@ -20,7 +20,6 @@ set(SOURCE_FILES
     rusty/base/log_manager.h
     rusty/base/process.cpp
     rusty/base/process.h
-    rusty/base/zip.h
 
     rusty/gui/color.cpp
     rusty/gui/color.h
@@ -67,7 +66,6 @@ set(TEST_FILES
 set(LINK_LIBS
     Qt5::Core
     Qt5::Gui
-    Qt5::GuiPrivate
     Qt5::Svg
     Qt5::Widgets
 
