@@ -5,9 +5,9 @@
 #include "rusty/gui/color.h"
 
 #include <cmath>
-
 #include <string>
 #include <sstream>
+#include <QRandomGenerator>
 
 namespace rusty {
 namespace {
@@ -271,6 +271,16 @@ QColor parseColor(QString val) {
   }
 
   return {};
+}
+
+QColor randomColor() {
+  auto* rng = QRandomGenerator::global();
+  constexpr int kLowest = 10;
+  constexpr int kHighest = 200;
+  const int r = rng->bounded(kLowest, kHighest);
+  const int g = rng->bounded(kLowest, kHighest);
+  const int b = rng->bounded(kLowest, kHighest);
+  return {r, g, b};
 }
 
 }  // namespace rusty

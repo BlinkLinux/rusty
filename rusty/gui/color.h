@@ -12,6 +12,8 @@ namespace rusty {
 
 QColor parseColor(QString val);
 
+QColor randomColor();
+
 }  // namespace rusty
 
 #endif  // RUSTY_RUSTY_GUI_COLOR_H_
