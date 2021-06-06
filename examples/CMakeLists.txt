@@ -22,16 +22,6 @@ target_link_libraries(crash-demo
     rusty-static
     )
 
-add_executable(style-demo
-    style_demo.cpp
-
-    ${SOURCE_FILES}
-    )
-target_link_libraries(style-demo
-    Qt5::Widgets
-    rusty-static
-    )
-
 add_executable(examples-main
     examples_main.cpp
 
