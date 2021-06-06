@@ -17,7 +17,7 @@ MenuRowActions::MenuRowActions(QObject* parent) : QWidgetAction(parent) {
   this->button_container_->setLayout(layout);
 }
 
-QPushButton* MenuRowActions::addButton(const QString& icon_path, int button_id) {
+QAbstractButton* MenuRowActions::addButton(const QString& icon_path, int button_id) {
   auto* icon_button = new IconButton(icon_path);
   this->button_container_->layout()->addWidget(icon_button);
   connect(icon_button, &IconButton::clicked,
@@ -29,7 +29,7 @@ QPushButton* MenuRowActions::addButton(const QString& icon_path, int button_id) 
   return icon_button;
 }
 
-QPushButton* MenuRowActions::button(int button_id) {
+QAbstractButton* MenuRowActions::button(int button_id) {
   return this->buttons_.value(button_id, nullptr);
 }
 

@@ -5,6 +5,7 @@
 #ifndef RUSTY_RUSTY_WIDGETS_NAV_LEFT_PANEL_BUTTONS_FRAME_H_
 #define RUSTY_RUSTY_WIDGETS_NAV_LEFT_PANEL_BUTTONS_FRAME_H_
 
+#include <QAbstractButton>
 #include <QButtonGroup>
 #include <QFrame>
 #include <QVBoxLayout>
@@ -17,14 +18,16 @@ class LeftPanelButtons : public QFrame {
   explicit LeftPanelButtons(QWidget* parent = nullptr);
   ~LeftPanelButtons() override = default;
 
-  void addButton(int button_id, const QString& icon, const QString& text);
+  QAbstractButton* addButton(int button_id, const QString& icon, const QString& text);
+
+  QAbstractButton* button(int button_id);
 
   void addStretch();
 
-  [[nodiscard]] int activeButton() const;
+  [[nodiscard]] int activeId() const;
 
  public slots:
-  void setActiveButton(int button_id);
+  void setActiveId(int button_id);
 
  signals:
   void activeChanged(int button_id);

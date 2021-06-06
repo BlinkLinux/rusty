@@ -18,9 +18,9 @@ class MenuRowActions : public QWidgetAction {
   explicit MenuRowActions(QObject* parent = nullptr);
   ~MenuRowActions() override = default;
 
-  QPushButton* addButton(const QString& icon_path, int button_id);
+  QAbstractButton* addButton(const QString& icon_path, int button_id);
 
-  QPushButton* button(int button_id);
+  QAbstractButton* button(int button_id);
 
  signals:
   void buttonClicked(int button_id);
@@ -32,7 +32,7 @@ class MenuRowActions : public QWidgetAction {
 
  private:
   QWidget* button_container_{nullptr};
-  QMap<int, QPushButton*> buttons_{};
+  QMap<int, QAbstractButton*> buttons_{};
 };
 
 }  // namespace rusty

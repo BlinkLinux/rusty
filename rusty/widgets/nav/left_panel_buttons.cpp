@@ -27,21 +27,26 @@ void LeftPanelButtons::initSignals() {
   });
 }
 
-void LeftPanelButtons::addButton(int button_id, const QString& icon, const QString& text) {
+QAbstractButton* LeftPanelButtons::button(int button_id) {
+  return this->button_group_->button(button_id);
+}
+
+QAbstractButton* LeftPanelButtons::addButton(int button_id, const QString& icon, const QString& text) {
   auto* button = new TabButton(icon, text);
   this->button_layout_->addWidget(button);
   this->button_group_->addButton(button, button_id);
+  return button;
 }
 
 void LeftPanelButtons::addStretch() {
   this->button_layout_->addStretch();
 }
 
-int LeftPanelButtons::activeButton() const {
+int LeftPanelButtons::activeId() const {
   return this->button_group_->checkedId();
 }
 
-void LeftPanelButtons::setActiveButton(int button_id) {
+void LeftPanelButtons::setActiveId(int button_id) {
   this->button_group_->button(button_id)->click();
 }
 
