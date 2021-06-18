@@ -10,3 +10,7 @@
 	path = rusty/third_party/adwaita-qt
 	url = https://github.com/RustyProject/adwaita-qt
 	branch = rusty
+[submodule "rusty/third_party/googletest"]
+	path = rusty/third_party/googletest
+	url = https://github.com/RustyProject/googletest
+	branch = rusty
