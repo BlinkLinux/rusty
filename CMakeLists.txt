@@ -86,18 +86,6 @@ set(LINK_LIBS
     CuteLogger
     )
 
-if (BUILD_SHARED_LIBS)
-add_library(rusty SHARED
-    ${SOURCE_FILES}
-    )
-target_link_libraries(rusty
-    ${LINK_LIBS}
-    )
-target_include_directories(rusty
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-    )
-endif()
-
 add_library(rusty-static STATIC
     ${SOURCE_FILES}
     )
