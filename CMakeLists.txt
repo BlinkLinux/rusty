@@ -71,16 +71,19 @@ set(SOURCE_FILES
     rusty/widgets/theme_manager.h
     rusty/widgets/utils.cpp
     rusty/widgets/utils.h
+    rusty/widgets/color_chooser_window.cpp
+    rusty/widgets/color_chooser_window.h
     )
 
 set(TEST_FILES
+    rusty/formats/tests/tests.qrc
     rusty/formats/color_palette_test.cpp
 
     rusty/tests/rusty_test_main.cpp
 
+    rusty/gui/tests/tests.qrc
     rusty/gui/color_test.cpp
     rusty/gui/image_test.cpp
-    rusty/gui/tests/tests.qrc
     rusty/gui/theme_file_test.cpp
     )
 
