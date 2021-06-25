@@ -90,17 +90,6 @@ set(LINK_LIBS
     CuteLogger
     )
 
-# NOTE(Shaohua): Disable shared lib.
-#add_library(rusty SHARED
-#    ${SOURCE_FILES}
-#    )
-#target_link_libraries(rusty
-#    ${LINK_LIBS}
-#    )
-#target_include_directories(rusty
-#    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-#    )
-
 add_library(rusty-static STATIC
     ${SOURCE_FILES}
     )
@@ -112,16 +101,14 @@ target_include_directories(rusty-static
     )
 
 if (BUILD_TESTING)
-  # TODO(Shaohua): Replace with embedded version.
-  find_package(GTest REQUIRED)
+  add_subdirectory(rusty/third_party/googletest)
   add_executable(rusty-tests
       ${TEST_FILES}
       )
   target_link_libraries(rusty-tests
       Qt5::Core
       Qt5::Svg
-
-      GTest::GTest
+      gtest
 
       rusty-static
       )
