@@ -28,6 +28,8 @@ set(SOURCE_FILES
 
     rusty/gui/color.cpp
     rusty/gui/color.h
+    rusty/gui/color_validator.cpp
+    rusty/gui/color_validator.h
     rusty/gui/image.cpp
     rusty/gui/image.h
     rusty/gui/theme_file.cpp
@@ -73,6 +75,15 @@ set(SOURCE_FILES
     rusty/widgets/utils.h
     rusty/widgets/color_chooser_window.cpp
     rusty/widgets/color_chooser_window.h
+    rusty/widgets/color_channel_label.cpp
+    rusty/widgets/color_channel_label.h
+    rusty/widgets/color_channel_line_edit.cpp
+    rusty/widgets/color_channel_line_edit.h
+    rusty/widgets/color_line_edit.cpp
+    rusty/widgets/color_line_edit.h
+    rusty/widgets/line_edit.cpp
+    rusty/widgets/line_edit.h
+
     )
 
 set(TEST_FILES
