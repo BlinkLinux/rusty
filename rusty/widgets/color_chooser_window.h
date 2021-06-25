@@ -23,8 +23,7 @@ class ColorChooserWindow : public QFrame {
   Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
  public:
   explicit ColorChooserWindow(QWidget* parent = nullptr);
-
-  void setGradientVisible(bool visible);
+  ~ColorChooserWindow() override = default;
 
   void setEnableTransparent(bool enable);
 
@@ -45,31 +44,17 @@ class ColorChooserWindow : public QFrame {
 
  private:
   void initUi();
-  void initSolidColor();
-  void initGradient();
 
   void initSignals();
 
-  QStackedLayout* stacked_layout_{nullptr};
-
-  QWidget* button_container_{nullptr};
-  FlatButton* solid_button_{nullptr};
-  FlatButton* gradient_button_{nullptr};
-
-  QWidget* solid_page_{nullptr};
   QColor solid_color_{};
   ColorPaletteListView* color_palette_list_view_{nullptr};
-  FlatButton* color_chooser_button_{nullptr};
-  FlatButton* transparent_button_{nullptr};
   HSVColorPicker* color_picker_{nullptr};
   ColorLineEdit* color_line_edit_{nullptr};
   ColorChannelLineEdit* r_line_edit_{nullptr};
   ColorChannelLineEdit* g_line_edit_{nullptr};
   ColorChannelLineEdit* b_line_edit_{nullptr};
   ColorChannelLineEdit* a_line_edit_{nullptr};
-
-  QWidget* gradient_page_{nullptr};
-
   ColorChannelLabel* a_label_{nullptr};
 };
 

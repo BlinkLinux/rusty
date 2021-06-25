@@ -91,6 +91,8 @@ set(SOURCE_FILES
     rusty/widgets/line_edit.h
     rusty/widgets/hsv_color_picker.cpp
     rusty/widgets/hsv_color_picker.h
+    rusty/widgets/flat_button.cpp
+    rusty/widgets/flat_button.h
     )
 
 set(TEST_FILES
