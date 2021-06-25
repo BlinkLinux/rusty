@@ -46,6 +46,8 @@ set(SOURCE_FILES
 
     rusty/widgets/adwaita_style.cpp
     rusty/widgets/adwaita_style.h
+    rusty/widgets/color_chooser_button.cpp
+    rusty/widgets/color_chooser_button.h
     rusty/widgets/form_section.cpp
     rusty/widgets/form_section.h
     rusty/widgets/form_section_title.cpp
