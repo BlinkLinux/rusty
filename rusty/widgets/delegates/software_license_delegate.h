@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_RUSTY_FRAMES_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_
-#define RUSTY_RUSTY_FRAMES_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_
+#ifndef RUSTY_RUSTY_WIDGETS_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_
+#define RUSTY_RUSTY_WIDGETS_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_
 
 #include <QStyledItemDelegate>
 
@@ -20,4 +20,4 @@ class SoftwareLicenseDelegate : public QStyledItemDelegate {
 
 }  // namespace rusty
 
-#endif  // RUSTY_RUSTY_FRAMES_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_
+#endif  // RUSTY_RUSTY_WIDGETS_DELEGATES_SOFTWARE_LICENSE_DELEGATE_H_

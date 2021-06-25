@@ -2,12 +2,12 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_RUSTY_FRAMES_MODELS_SOFTWARE_LICENSE_MODEL_H_
-#define RUSTY_RUSTY_FRAMES_MODELS_SOFTWARE_LICENSE_MODEL_H_
+#ifndef RUSTY_RUSTY_WIDGETS_MODELS_SOFTWARE_LICENSE_MODEL_H_
+#define RUSTY_RUSTY_WIDGETS_MODELS_SOFTWARE_LICENSE_MODEL_H_
 
 #include <QAbstractTableModel>
 
-#include "rusty/frames/models/license_parser.h"
+#include "rusty/formats/license_parser.h"
 
 namespace rusty {
 
@@ -47,4 +47,4 @@ class SoftwareLicenseModel : public QAbstractTableModel {
 
 }  // namespace rusty
 
-#endif  // RUSTY_RUSTY_FRAMES_MODELS_SOFTWARE_LICENSE_MODEL_H_
+#endif  // RUSTY_RUSTY_WIDGETS_MODELS_SOFTWARE_LICENSE_MODEL_H_

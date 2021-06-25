@@ -2,14 +2,14 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#include "rusty/frames/software_license_window.h"
+#include "rusty/widgets/software_license_window.h"
 
 #include <QHeaderView>
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 
-#include "rusty/frames/delegates/software_license_delegate.h"
+#include "rusty/widgets/delegates/software_license_delegate.h"
 
 namespace rusty {
 

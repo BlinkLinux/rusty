@@ -2,13 +2,13 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#include "rusty/frames/delegates/software_license_delegate.h"
+#include "rusty/widgets/delegates/software_license_delegate.h"
 
 #include <QFont>
 #include <QPainter>
 #include <QPen>
 
-#include "rusty/frames/models/software_license_model.h"
+#include "rusty/widgets/models/software_license_model.h"
 
 namespace rusty {
 

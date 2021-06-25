@@ -21,14 +21,8 @@ set(SOURCE_FILES
     rusty/base/process.cpp
     rusty/base/process.h
 
-    rusty/frames/delegates/software_license_delegate.cpp
-    rusty/frames/delegates/software_license_delegate.h
-    rusty/frames/models/license_parser.cpp
-    rusty/frames/models/license_parser.h
-    rusty/frames/models/software_license_model.cpp
-    rusty/frames/models/software_license_model.h
-    rusty/frames/software_license_window.cpp
-    rusty/frames/software_license_window.h
+    rusty/formats/license_parser.cpp
+    rusty/formats/license_parser.h
 
     rusty/gui/color.cpp
     rusty/gui/color.h
@@ -37,17 +31,12 @@ set(SOURCE_FILES
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
 
-    rusty/widgets/nav/left_panel_buttons.cpp
-    rusty/widgets/nav/left_panel_buttons.h
-    rusty/widgets/nav/nav_bar.cpp
-    rusty/widgets/nav/nav_bar.h
-    rusty/widgets/nav/tab_button.cpp
-    rusty/widgets/nav/tab_button.h
-
     rusty/widgets/adwaita_style.cpp
     rusty/widgets/adwaita_style.h
     rusty/widgets/color_chooser_button.cpp
     rusty/widgets/color_chooser_button.h
+    rusty/widgets/delegates/software_license_delegate.cpp
+    rusty/widgets/delegates/software_license_delegate.h
     rusty/widgets/form_section.cpp
     rusty/widgets/form_section.h
     rusty/widgets/form_section_title.cpp
@@ -58,10 +47,20 @@ set(SOURCE_FILES
     rusty/widgets/icon_button.h
     rusty/widgets/menu_row_actions.cpp
     rusty/widgets/menu_row_actions.h
+    rusty/widgets/models/software_license_model.cpp
+    rusty/widgets/models/software_license_model.h
+    rusty/widgets/nav/left_panel_buttons.cpp
+    rusty/widgets/nav/left_panel_buttons.h
+    rusty/widgets/nav/nav_bar.cpp
+    rusty/widgets/nav/nav_bar.h
+    rusty/widgets/nav/tab_button.cpp
+    rusty/widgets/nav/tab_button.h
     rusty/widgets/rusty_style.cpp
     rusty/widgets/rusty_style.h
     rusty/widgets/separator_line.cpp
     rusty/widgets/separator_line.h
+    rusty/widgets/software_license_window.cpp
+    rusty/widgets/software_license_window.h
     rusty/widgets/switch_button.cpp
     rusty/widgets/switch_button.h
     rusty/widgets/text_button.cpp

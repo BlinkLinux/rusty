@@ -2,8 +2,8 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_RUSTY_FRAMES_MODELS_LICENSE_PARSER_H_
-#define RUSTY_RUSTY_FRAMES_MODELS_LICENSE_PARSER_H_
+#ifndef RUSTY_RUSTY_FORMATS_LICENSE_PARSER_H_
+#define RUSTY_RUSTY_FORMATS_LICENSE_PARSER_H_
 
 #include <QDebug>
 #include <QString>
@@ -27,4 +27,4 @@ SoftwareLicenseList parseAppLicense(const QString& file);
 
 }  // namespace rusty
 
-#endif  // RUSTY_RUSTY_FRAMES_MODELS_LICENSE_PARSER_H_
+#endif  // RUSTY_RUSTY_FORMATS_LICENSE_PARSER_H_

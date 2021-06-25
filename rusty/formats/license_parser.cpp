@@ -2,13 +2,14 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#include "rusty/frames/models/license_parser.h"
+#include "rusty/formats/license_parser.h"
 
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <rusty/base/file.h>
+
+#include "rusty/base/file.h"
 
 namespace rusty {
 namespace {

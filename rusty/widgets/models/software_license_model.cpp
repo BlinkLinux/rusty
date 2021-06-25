@@ -2,7 +2,7 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#include "rusty/frames/models/software_license_model.h"
+#include "rusty/widgets/models/software_license_model.h"
 
 #include <QBrush>
 #include <QDebug>

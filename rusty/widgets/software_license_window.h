@@ -2,14 +2,14 @@
 // Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
-#ifndef RUSTY_RUSTY_FRAMES_SOFTWARE_LICENSE_WINDOW_H_
-#define RUSTY_RUSTY_FRAMES_SOFTWARE_LICENSE_WINDOW_H_
+#ifndef RUSTY_RUSTY_WIDGETS_SOFTWARE_LICENSE_WINDOW_H_
+#define RUSTY_RUSTY_WIDGETS_SOFTWARE_LICENSE_WINDOW_H_
 
 #include <QPushButton>
 #include <QTableView>
 #include <QWidget>
 
-#include "rusty/frames/models/software_license_model.h"
+#include "rusty/widgets/models/software_license_model.h"
 
 namespace rusty {
 
@@ -38,4 +38,4 @@ class SoftwareLicenseWindow : public QWidget {
 
 }  // namespace rusty
 
-#endif  // RUSTY_RUSTY_FRAMES_SOFTWARE_LICENSE_WINDOW_H_
+#endif  // RUSTY_RUSTY_WIDGETS_SOFTWARE_LICENSE_WINDOW_H_
