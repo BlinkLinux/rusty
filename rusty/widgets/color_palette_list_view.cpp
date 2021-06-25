@@ -2,14 +2,14 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include "frames/internal/color_palette_list_view.h"
+#include "rusty/widgets/color_palette_list_view.h"
 
 #include <QtMath>
 #include <QDebug>
 
-#include "frames/delegates/color_palette_delegate.h"
+#include "rusty/widgets/delegates/color_palette_delegate.h"
 
-namespace publisher {
+namespace rusty {
 namespace {
 
 constexpr int kItemSpacing = 8;
@@ -62,4 +62,4 @@ void ColorPaletteListView::onItemClicked(const QModelIndex& index) {
   emit this->colorChanged(color);
 }
 
-}  // namespace publisher
+}  // namespace rusty

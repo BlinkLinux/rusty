@@ -2,12 +2,12 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#ifndef PUBLISHER_SRC_FRAMES_DELEGATES_COLOR_PALETTE_DELEGATE_H_
-#define PUBLISHER_SRC_FRAMES_DELEGATES_COLOR_PALETTE_DELEGATE_H_
+#ifndef RUSTY_RUSTY_WIDGETS_DELEGATES_COLOR_PALETTE_DELEGATE_H_
+#define RUSTY_RUSTY_WIDGETS_DELEGATES_COLOR_PALETTE_DELEGATE_H_
 
 #include <QStyledItemDelegate>
 
-namespace publisher {
+namespace rusty {
 
 class ColorPaletteDelegate : public QStyledItemDelegate{
   Q_OBJECT
@@ -22,6 +22,6 @@ class ColorPaletteDelegate : public QStyledItemDelegate{
   static const int kHeightHint = 24;
 };
 
-}  // namespace publisher
+}  // namespace rusty
 
-#endif  // PUBLISHER_SRC_FRAMES_DELEGATES_COLOR_PALETTE_DELEGATE_H_
+#endif  // RUSTY_RUSTY_WIDGETS_DELEGATES_COLOR_PALETTE_DELEGATE_H_

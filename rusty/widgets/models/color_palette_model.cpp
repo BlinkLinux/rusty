@@ -2,9 +2,9 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include "frames/models/color_palette_model.h"
+#include "rusty/widgets/models/color_palette_model.h"
 
-namespace publisher {
+namespace rusty {
 
 ColorPaletteModel::ColorPaletteModel(QObject* parent) : QAbstractListModel(parent) {
 
@@ -33,4 +33,4 @@ int ColorPaletteModel::items() const {
   return this->palette_.length();
 }
 
-}  // namespace publisher
+}  // namespace rusty

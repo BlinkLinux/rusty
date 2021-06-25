@@ -75,6 +75,12 @@ set(SOURCE_FILES
     rusty/widgets/utils.h
     rusty/widgets/color_chooser_window.cpp
     rusty/widgets/color_chooser_window.h
+    rusty/widgets/color_palette_list_view.cpp
+    rusty/widgets/color_palette_list_view.h
+    rusty/widgets/models/color_palette_model.cpp
+    rusty/widgets/models/color_palette_model.h
+    rusty/widgets/delegates/color_palette_delegate.cpp
+    rusty/widgets/delegates/color_palette_delegate.h
     rusty/widgets/color_channel_label.cpp
     rusty/widgets/color_channel_label.h
     rusty/widgets/color_channel_line_edit.cpp
@@ -83,7 +89,8 @@ set(SOURCE_FILES
     rusty/widgets/color_line_edit.h
     rusty/widgets/line_edit.cpp
     rusty/widgets/line_edit.h
-
+    rusty/widgets/hsv_color_picker.cpp
+    rusty/widgets/hsv_color_picker.h
     )
 
 set(TEST_FILES

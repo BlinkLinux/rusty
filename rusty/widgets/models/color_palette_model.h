@@ -2,14 +2,14 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#ifndef PUBLISHER_SRC_FRAMES_MODELS_COLOR_PALETTE_MODEL_H_
-#define PUBLISHER_SRC_FRAMES_MODELS_COLOR_PALETTE_MODEL_H_
+#ifndef RUSTY_RUSTY_WIDGETS_MODELS_COLOR_PALETTE_MODEL_H_
+#define RUSTY_RUSTY_WIDGETS_MODELS_COLOR_PALETTE_MODEL_H_
 
 #include <QAbstractListModel>
 
-#include "formats/color_palette.h"
+#include "rusty/formats/color_palette.h"
 
-namespace publisher {
+namespace rusty {
 
 class ColorPaletteModel : public QAbstractListModel {
   Q_OBJECT
@@ -28,6 +28,6 @@ class ColorPaletteModel : public QAbstractListModel {
   ColorPalette palette_{};
 };
 
-}  // namespace publisher
+}  // namespace rusty
 
-#endif  // PUBLISHER_SRC_FRAMES_MODELS_COLOR_PALETTE_MODEL_H_
+#endif  // RUSTY_RUSTY_WIDGETS_MODELS_COLOR_PALETTE_MODEL_H_

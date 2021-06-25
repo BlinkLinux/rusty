@@ -2,12 +2,12 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include "frames/delegates/color_palette_delegate.h"
+#include "rusty/widgets/delegates/color_palette_delegate.h"
 
 #include <QPainter>
 #include <QPainterPath>
 
-namespace publisher {
+namespace rusty {
 
 ColorPaletteDelegate::ColorPaletteDelegate(QObject* parent) : QStyledItemDelegate(parent) {
 
@@ -35,4 +35,4 @@ QSize ColorPaletteDelegate::sizeHint(const QStyleOptionViewItem& option, const Q
   return {kWidthHint, kHeightHint};
 }
 
-}  // namespace publisher
+}  // namespace rusty

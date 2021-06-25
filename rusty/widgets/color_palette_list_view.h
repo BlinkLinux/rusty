@@ -2,15 +2,15 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#ifndef PUBLISHER_SRC_FRAMES_INTERNAL_COLOR_PALETTE_LIST_VIEW_H_
-#define PUBLISHER_SRC_FRAMES_INTERNAL_COLOR_PALETTE_LIST_VIEW_H_
+#ifndef RUSTY_RUSTY_COLOR_PALETTE_LIST_VIEW_H_
+#define RUSTY_RUSTY_COLOR_PALETTE_LIST_VIEW_H_
 
 #include <QListView>
 
-#include "formats/color_palette.h"
-#include "frames/models/color_palette_model.h"
+#include "rusty/formats/color_palette.h"
+#include "rusty/widgets/models/color_palette_model.h"
 
-namespace publisher {
+namespace rusty {
 
 class ColorPaletteListView : public QListView {
   Q_OBJECT
@@ -33,6 +33,6 @@ class ColorPaletteListView : public QListView {
   ColorPaletteModel* model_{nullptr};
 };
 
-}  // namespace publisher
+}  // namespace rusty
 
-#endif  // PUBLISHER_SRC_FRAMES_INTERNAL_COLOR_PALETTE_LIST_VIEW_H_
+#endif  // RUSTY_RUSTY_COLOR_PALETTE_LIST_VIEW_H_
