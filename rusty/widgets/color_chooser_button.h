@@ -7,6 +7,8 @@
 
 #include <QWidget>
 
+#include "rusty/formats/color_palette.h"
+
 namespace rusty {
 
 class ColorChooserButton : public QWidget {
@@ -18,6 +20,11 @@ class ColorChooserButton : public QWidget {
 
   [[nodiscard]] const QColor& color() const { return this->color_; }
 
+  void setColorPalette(const ColorPalette& palette) {
+    this->palette_changed_ = true;
+    this->palette_ = palette;
+  }
+
  public slots:
   void setColor(const QColor& color);
 
@@ -26,12 +33,10 @@ class ColorChooserButton : public QWidget {
 
   void mousePressEvent(QMouseEvent* e) override;
 
-  void enterEvent(QEvent* event) override;
-
-  void leaveEvent(QEvent* event) override;
-
  private:
   QColor color_;
+  bool palette_changed_{false};
+  ColorPalette palette_{};
 };
 
 }  // namespace rusty

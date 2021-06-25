@@ -41,7 +41,7 @@ void HSVColorPicker::setPreviewColor(const QColor& color) {
 }
 
 void HSVColorPicker::paintEvent(QPaintEvent* event) {
-  Q_UNUSED(event);
+  Q_UNUSED(event)
 
   QPainter painter(this);
   QColor color;
@@ -61,19 +61,21 @@ void HSVColorPicker::paintEvent(QPaintEvent* event) {
     }
   }
 
-  // Draw cross-hair indicator.
-//  const bool is_black_color = this->color_.value() < kMaxValue / 2;
-//  const int kPixmapX = this->color_.saturation() - 8;
-//  const int kPixmapY = kMaxValue - this->color_.value() - 8;
-  // TODO(Shaohua): Draw cross line.
-//  const QString pixmap = is_black_color ? kImageLightWhitePlus : kImageLightBlackPlus;
-//  painter.drawPixmap(kPixmapX, kPixmapY, QPixmap(pixmap));
+  // Draw cross line.
+  const int kPixmapX = this->color_.saturation();
+  const int kPixmapY = kMaxValue - this->color_.value();
+  pen.setColor(Qt::gray);
+  pen.setWidth(2);
+  painter.setPen(pen);
+  painter.drawLine(0, kPixmapY, kMaxValue, kPixmapY);
+  painter.drawLine(kPixmapX, 0, kPixmapX, kMaxSaturation);
 
   // Draw preview icon
   painter.fillRect(this->preview_rect_, this->preview_color_);
 
   // Draw hue slider. 355 -> 0
   painter.scale(kHueScale, 1);
+  pen.setWidth(1);
   for (int hue = kMinHue; hue <= kMaxHue; ++hue) {
     color.setHsv(hue, kMaxSaturation, kMaxValue);
     pen.setColor(color);

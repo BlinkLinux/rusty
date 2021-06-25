@@ -13,8 +13,6 @@
 namespace rusty {
 
 ColorChooserButton::ColorChooserButton(QWidget* parent) : QWidget(parent) {
-  // TODO(Shaohua): Show border on mouse hover.
-  this->setMouseTracking(true);
 }
 
 void ColorChooserButton::setColor(const QColor& color) {
@@ -39,21 +37,14 @@ void ColorChooserButton::paintEvent(QPaintEvent* event) {
 void ColorChooserButton::mousePressEvent(QMouseEvent* event) {
   auto* dialog = new ColorChooserDialog();
   dialog->setModal(true);
+  if (this->palette_changed_) {
+    dialog->setColorPalette(this->palette_);
+  }
   connect(dialog, &ColorChooserDialog::colorChanged,
           this, &ColorChooserButton::setColor);
   connect(dialog, &ColorChooserDialog::finished,
           dialog, &ColorChooserDialog::deleteLater);
   dialog->exec();
-}
-
-void ColorChooserButton::enterEvent(QEvent* event) {
-  this->update();
-  QWidget::enterEvent(event);
-}
-
-void ColorChooserButton::leaveEvent(QEvent* event) {
-  this->update();
-  QWidget::leaveEvent(event);
 }
 
 }  // namespace rusty

@@ -83,7 +83,7 @@ void ColorChooserWidget::initSignals() {
   });
 }
 
-void ColorChooserWidget::setSolidColorPalette(const ColorPalette& palette) {
+void ColorChooserWidget::setColorPalette(const ColorPalette& palette) {
   this->color_palette_list_view_->setColorPalette(palette);
 }
 

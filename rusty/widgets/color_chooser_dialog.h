@@ -19,8 +19,8 @@ class ColorChooserDialog : public QDialog {
   explicit ColorChooserDialog(QWidget* parent = nullptr);
   ~ColorChooserDialog() override = default;
 
-  void setSolidColorPalette(const ColorPalette& palette) {
-    this->color_widget_->setSolidColorPalette(palette);
+  void setColorPalette(const ColorPalette& palette) {
+    this->color_widget_->setColorPalette(palette);
   }
 
   [[nodiscard]] const QColor& color() const {

@@ -25,7 +25,7 @@ class ColorChooserWidget : public QWidget {
 
   void setEnableTransparent(bool enable);
 
-  void setSolidColorPalette(const ColorPalette& palette);
+  void setColorPalette(const ColorPalette& palette);
 
   [[nodiscard]] const QColor& color() const { return this->solid_color_; }
 
