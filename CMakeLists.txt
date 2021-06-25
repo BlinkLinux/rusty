@@ -46,6 +46,8 @@ set(SOURCE_FILES
 
     rusty/widgets/adwaita_style.cpp
     rusty/widgets/adwaita_style.h
+    rusty/widgets/form_section.cpp
+    rusty/widgets/form_section.h
     rusty/widgets/form_section_title.cpp
     rusty/widgets/form_section_title.h
     rusty/widgets/grayscale_effect.cpp
