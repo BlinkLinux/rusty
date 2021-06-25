@@ -21,6 +21,8 @@ set(SOURCE_FILES
     rusty/base/process.cpp
     rusty/base/process.h
 
+    rusty/formats/color_palette.cpp
+    rusty/formats/color_palette.h
     rusty/formats/license_parser.cpp
     rusty/formats/license_parser.h
 
@@ -72,6 +74,8 @@ set(SOURCE_FILES
     )
 
 set(TEST_FILES
+    rusty/formats/color_palette_test.cpp
+
     rusty/tests/rusty_test_main.cpp
 
     rusty/gui/color_test.cpp
