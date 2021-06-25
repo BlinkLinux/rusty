@@ -11,6 +11,7 @@ namespace rusty {
 ColorChooserDialog::ColorChooserDialog(QWidget* parent) : QDialog(parent) {
   this->initUi();
   this->initSignals();
+  this->setWindowTitle(tr("Choose Color .."));
 }
 
 void ColorChooserDialog::initUi() {

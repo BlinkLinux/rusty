@@ -8,6 +8,8 @@
 #include <QPainter>
 #include <QPainterPath>
 
+#include "rusty/widgets/color_chooser_dialog.h"
+
 namespace rusty {
 
 ColorChooserButton::ColorChooserButton(QWidget* parent) : QWidget(parent) {
@@ -35,8 +37,13 @@ void ColorChooserButton::paintEvent(QPaintEvent* event) {
 }
 
 void ColorChooserButton::mousePressEvent(QMouseEvent* event) {
-  Q_UNUSED(event)
-  emit this->clicked();
+  auto* dialog = new ColorChooserDialog();
+  dialog->setModal(true);
+  connect(dialog, &ColorChooserDialog::colorChanged,
+          this, &ColorChooserButton::setColor);
+  connect(dialog, &ColorChooserDialog::finished,
+          dialog, &ColorChooserDialog::deleteLater);
+  dialog->exec();
 }
 
 void ColorChooserButton::enterEvent(QEvent* event) {

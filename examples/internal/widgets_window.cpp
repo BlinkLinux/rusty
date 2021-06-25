@@ -16,6 +16,7 @@
 #include <rusty/widgets/menu_row_actions.h>
 #include <rusty/widgets/nav/nav_bar.h>
 #include <rusty/widgets/switch_button.h>
+#include <rusty/widgets/color_chooser_button.h>
 
 #include "resources/resources.h"
 
@@ -76,6 +77,10 @@ void WidgetsWindow::initMiscTab() {
 
   auto* null_switch = new SwitchButton();
   theme_layout->addWidget(null_switch);
+
+  auto* color_chooser_btn = new ColorChooserButton();
+  color_chooser_btn->setFixedSize(64, 24);
+  main_layout->addWidget(color_chooser_btn);
 }
 
 void WidgetsWindow::initLogTab() {

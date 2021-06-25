@@ -21,9 +21,6 @@ class ColorChooserButton : public QWidget {
  public slots:
   void setColor(const QColor& color);
 
- signals:
-  void clicked();
-
  protected:
   void paintEvent(QPaintEvent* event) override;
 
