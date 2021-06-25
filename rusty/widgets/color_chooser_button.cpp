@@ -35,6 +35,7 @@ void ColorChooserButton::paintEvent(QPaintEvent* event) {
 }
 
 void ColorChooserButton::mousePressEvent(QMouseEvent* event) {
+  Q_UNUSED(event)
   auto* dialog = new ColorChooserDialog();
   dialog->setModal(true);
   if (this->palette_changed_) {

@@ -129,6 +129,12 @@ target_link_libraries(rusty-static
 target_include_directories(rusty-static
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
     )
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+  # See https://fuzzing-project.org/tutorial-cflags.html.
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(rusty-static PRIVATE -Wall -Werror -Wextra -fno-exceptions)
+  endif()
+endif ()
 
 if (BUILD_TESTING)
   add_subdirectory(rusty/third_party/googletest)
