@@ -5,7 +5,6 @@
 #ifndef RUSTY_RUSTY_FRAMES_COLOR_CHOOSER_WINDOW_H_
 #define RUSTY_RUSTY_FRAMES_COLOR_CHOOSER_WINDOW_H_
 
-#include <QStackedLayout>
 #include <QWidget>
 
 #include "rusty/formats/color_palette.h"
@@ -13,17 +12,16 @@
 #include "rusty/widgets/color_channel_line_edit.h"
 #include "rusty/widgets/color_line_edit.h"
 #include "rusty/widgets/color_palette_list_view.h"
-#include "rusty/widgets/flat_button.h"
 #include "rusty/widgets/hsv_color_picker.h"
 
 namespace rusty {
 
-class ColorChooserWindow : public QFrame {
+class ColorChooserWidget : public QWidget {
   Q_OBJECT
   Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
  public:
-  explicit ColorChooserWindow(QWidget* parent = nullptr);
-  ~ColorChooserWindow() override = default;
+  explicit ColorChooserWidget(QWidget* parent = nullptr);
+  ~ColorChooserWidget() override = default;
 
   void setEnableTransparent(bool enable);
 

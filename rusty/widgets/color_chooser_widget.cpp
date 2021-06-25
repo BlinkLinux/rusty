@@ -2,7 +2,7 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include "rusty/widgets/color_chooser_window.h"
+#include "rusty/widgets/color_chooser_widget.h"
 
 #include <QButtonGroup>
 #include <QDebug>
@@ -12,19 +12,16 @@
 
 namespace rusty {
 
-ColorChooserWindow::ColorChooserWindow(QWidget* parent) : QFrame(parent) {
-  this->setWindowFlags(Qt::Popup);
-
+ColorChooserWidget::ColorChooserWidget(QWidget* parent) : QWidget(parent) {
   this->initUi();
   this->initSignals();
 }
 
-void ColorChooserWindow::initUi() {
+void ColorChooserWidget::initUi() {
   auto* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
   this->setLayout(main_layout);
-  this->setFixedWidth(290);
 
   this->color_picker_ = new HSVColorPicker();
   main_layout->addWidget(this->color_picker_);
@@ -61,13 +58,13 @@ void ColorChooserWindow::initUi() {
   main_layout->addWidget(this->color_palette_list_view_);
 }
 
-void ColorChooserWindow::initSignals() {
+void ColorChooserWidget::initSignals() {
   connect(this->color_palette_list_view_, &ColorPaletteListView::colorChanged,
-          this, &ColorChooserWindow::setColor);
+          this, &ColorChooserWidget::setColor);
   connect(this->color_picker_, &HSVColorPicker::colorChanged,
-          this, &ColorChooserWindow::setColor);
+          this, &ColorChooserWidget::setColor);
   connect(this->color_line_edit_, &ColorLineEdit::colorChanged,
-          this, &ColorChooserWindow::setColor);
+          this, &ColorChooserWidget::setColor);
   connect(this->r_line_edit_, &ColorChannelLineEdit::valueChanged, [=](int value) {
     this->setColor(QColor(value, this->solid_color_.green(),
                           this->solid_color_.blue(), this->solid_color_.alpha()));
@@ -86,16 +83,16 @@ void ColorChooserWindow::initSignals() {
   });
 }
 
-void ColorChooserWindow::setSolidColorPalette(const ColorPalette& palette) {
+void ColorChooserWidget::setSolidColorPalette(const ColorPalette& palette) {
   this->color_palette_list_view_->setColorPalette(palette);
 }
 
-void ColorChooserWindow::focusOutEvent(QFocusEvent* event) {
+void ColorChooserWidget::focusOutEvent(QFocusEvent* event) {
   QWidget::focusOutEvent(event);
   emit this->lostFocus();
 }
 
-void ColorChooserWindow::setColor(const QColor& color) {
+void ColorChooserWidget::setColor(const QColor& color) {
   if (this->solid_color_ == color) {
     return;
   }
@@ -110,7 +107,7 @@ void ColorChooserWindow::setColor(const QColor& color) {
   emit this->colorChanged(color);
 }
 
-void ColorChooserWindow::setEnableTransparent(bool enable) {
+void ColorChooserWidget::setEnableTransparent(bool enable) {
   this->a_line_edit_->setVisible(enable);
   this->a_label_->setVisible(enable);
 }

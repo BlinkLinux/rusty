@@ -37,20 +37,42 @@ set(SOURCE_FILES
 
     rusty/widgets/adwaita_style.cpp
     rusty/widgets/adwaita_style.h
+    rusty/widgets/color_channel_label.cpp
+    rusty/widgets/color_channel_label.h
+    rusty/widgets/color_channel_line_edit.cpp
+    rusty/widgets/color_channel_line_edit.h
     rusty/widgets/color_chooser_button.cpp
     rusty/widgets/color_chooser_button.h
+    rusty/widgets/color_chooser_dialog.cpp
+    rusty/widgets/color_chooser_dialog.h
+    rusty/widgets/color_chooser_widget.cpp
+    rusty/widgets/color_chooser_widget.h
+    rusty/widgets/color_line_edit.cpp
+    rusty/widgets/color_line_edit.h
+    rusty/widgets/color_palette_list_view.cpp
+    rusty/widgets/color_palette_list_view.h
+    rusty/widgets/delegates/color_palette_delegate.cpp
+    rusty/widgets/delegates/color_palette_delegate.h
     rusty/widgets/delegates/software_license_delegate.cpp
     rusty/widgets/delegates/software_license_delegate.h
+    rusty/widgets/flat_button.cpp
+    rusty/widgets/flat_button.h
     rusty/widgets/form_section.cpp
     rusty/widgets/form_section.h
     rusty/widgets/form_section_title.cpp
     rusty/widgets/form_section_title.h
     rusty/widgets/grayscale_effect.cpp
     rusty/widgets/grayscale_effect.h
+    rusty/widgets/hsv_color_picker.cpp
+    rusty/widgets/hsv_color_picker.h
     rusty/widgets/icon_button.cpp
     rusty/widgets/icon_button.h
+    rusty/widgets/line_edit.cpp
+    rusty/widgets/line_edit.h
     rusty/widgets/menu_row_actions.cpp
     rusty/widgets/menu_row_actions.h
+    rusty/widgets/models/color_palette_model.cpp
+    rusty/widgets/models/color_palette_model.h
     rusty/widgets/models/software_license_model.cpp
     rusty/widgets/models/software_license_model.h
     rusty/widgets/nav/left_panel_buttons.cpp
@@ -73,26 +95,6 @@ set(SOURCE_FILES
     rusty/widgets/theme_manager.h
     rusty/widgets/utils.cpp
     rusty/widgets/utils.h
-    rusty/widgets/color_chooser_window.cpp
-    rusty/widgets/color_chooser_window.h
-    rusty/widgets/color_palette_list_view.cpp
-    rusty/widgets/color_palette_list_view.h
-    rusty/widgets/models/color_palette_model.cpp
-    rusty/widgets/models/color_palette_model.h
-    rusty/widgets/delegates/color_palette_delegate.cpp
-    rusty/widgets/delegates/color_palette_delegate.h
-    rusty/widgets/color_channel_label.cpp
-    rusty/widgets/color_channel_label.h
-    rusty/widgets/color_channel_line_edit.cpp
-    rusty/widgets/color_channel_line_edit.h
-    rusty/widgets/color_line_edit.cpp
-    rusty/widgets/color_line_edit.h
-    rusty/widgets/line_edit.cpp
-    rusty/widgets/line_edit.h
-    rusty/widgets/hsv_color_picker.cpp
-    rusty/widgets/hsv_color_picker.h
-    rusty/widgets/flat_button.cpp
-    rusty/widgets/flat_button.h
     )
 
 set(TEST_FILES
