@@ -13,7 +13,7 @@ namespace rusty {
 
 class ColorChooserButton : public QWidget {
   Q_OBJECT
-  Q_PROPERTY(QColor color READ color WRITE setColor)
+  Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 
  public:
   explicit ColorChooserButton(QWidget* parent = nullptr);
@@ -25,8 +25,13 @@ class ColorChooserButton : public QWidget {
     this->palette_ = palette;
   }
 
+  QSize sizeHint() const override;
+
  public slots:
   void setColor(const QColor& color);
+
+ signals:
+  void colorChanged(const QColor& color);
 
  protected:
   void paintEvent(QPaintEvent* event) override;

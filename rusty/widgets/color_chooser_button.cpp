@@ -13,15 +13,17 @@
 namespace rusty {
 
 ColorChooserButton::ColorChooserButton(QWidget* parent) : QWidget(parent) {
+
 }
 
 void ColorChooserButton::setColor(const QColor& color) {
   this->color_ = color;
+  emit this->colorChanged(color);
   this->update();
 }
 
 void ColorChooserButton::paintEvent(QPaintEvent* event) {
-  Q_UNUSED(event);
+  Q_UNUSED(event)
   QPainter painter(this);
   painter.setRenderHints(QPainter::Antialiasing);
   QPainterPath path;
@@ -46,6 +48,10 @@ void ColorChooserButton::mousePressEvent(QMouseEvent* event) {
   connect(dialog, &ColorChooserDialog::finished,
           dialog, &ColorChooserDialog::deleteLater);
   dialog->exec();
+}
+
+QSize ColorChooserButton::sizeHint() const {
+  return {64, 24};
 }
 
 }  // namespace rusty
