@@ -80,6 +80,7 @@ void WidgetsWindow::initMiscTab() {
 
   auto* color_chooser_btn = new ColorChooserButton();
   color_chooser_btn->setFixedSize(64, 24);
+  color_chooser_btn->setColor(QColor("#990e44"));
   main_layout->addWidget(color_chooser_btn);
 }
 

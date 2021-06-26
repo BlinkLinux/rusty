@@ -43,6 +43,7 @@ void ColorChooserButton::mousePressEvent(QMouseEvent* event) {
   if (this->palette_changed_) {
     dialog->setColorPalette(this->palette_);
   }
+  dialog->setColor(this->color_);
   connect(dialog, &ColorChooserDialog::colorChanged,
           this, &ColorChooserButton::setColor);
   connect(dialog, &ColorChooserDialog::finished,
