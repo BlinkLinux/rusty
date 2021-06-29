@@ -19,6 +19,8 @@ class HSVColorPicker : public QWidget {
 
   const QColor& color() const { return this->color_; }
 
+  QSize sizeHint() const override;
+
  public slots:
   void setColor(const QColor& color);
 

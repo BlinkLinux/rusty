@@ -167,4 +167,8 @@ void HSVColorPicker::updateSaturationValue(const QPoint& pos) {
   emit this->colorChanged(this->color_);
 }
 
+QSize HSVColorPicker::sizeHint() const {
+  return {257, 280};
+}
+
 }  // namespace rusty
