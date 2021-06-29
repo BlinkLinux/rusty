@@ -29,6 +29,7 @@ void ColorChooserWidget::initUi() {
   auto* grid_layout = new QGridLayout();
   grid_layout->setContentsMargins(0, 0, 0, 0);
   grid_layout->setSpacing(10);
+  main_layout->addSpacing(10);
   main_layout->addLayout(grid_layout);
   this->color_line_edit_ = new ColorLineEdit();
   grid_layout->addWidget(this->color_line_edit_, 0, 0);
@@ -53,9 +54,10 @@ void ColorChooserWidget::initUi() {
   grid_layout->addWidget(this->a_label_, 1, 4, Qt::AlignHCenter);
 
   main_layout->addWidget(new rusty::SeparatorLine(Qt::Horizontal));
-
+  main_layout->addStretch();
   this->color_palette_list_view_ = new ColorPaletteListView();
   main_layout->addWidget(this->color_palette_list_view_);
+  main_layout->addStretch();
 }
 
 void ColorChooserWidget::initSignals() {

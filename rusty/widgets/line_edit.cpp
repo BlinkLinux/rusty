@@ -7,7 +7,7 @@
 namespace rusty {
 
 LineEdit::LineEdit(QWidget* parent) : QLineEdit(parent) {
-  // style: line-edit.css
+
 }
 
 LineEdit::LineEdit(const QString& text, QWidget* parent) : QLineEdit(text, parent) {

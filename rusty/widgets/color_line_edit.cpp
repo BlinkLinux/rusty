@@ -4,13 +4,18 @@
 
 #include "rusty/widgets/color_line_edit.h"
 
-#include <QDebug>
+#include <QFont>
 
 #include "rusty/gui/color_validator.h"
 
 namespace rusty {
 
 ColorLineEdit::ColorLineEdit(QWidget* parent) : LineEdit(parent) {
+  this->setMaximumWidth(95);
+  QFont font(this->font());
+  font.setPixelSize(13);
+  this->setFont(font);
+
   QValidator* validator = new ColorValidator(this);
   this->setValidator(validator);
 
@@ -28,8 +33,6 @@ ColorLineEdit::ColorLineEdit(QWidget* parent) : LineEdit(parent) {
 
   connect(this, &ColorLineEdit::editingFinished,
           this, &ColorLineEdit::onTextChanged);
-
-  // style: color-line-edit.css
 }
 
 QColor ColorLineEdit::color() const {
@@ -37,7 +40,7 @@ QColor ColorLineEdit::color() const {
 }
 
 void ColorLineEdit::setColor(const QColor& color) {
-  this->setText(color.name());
+  this->setText(color.name().toUpper());
 }
 
 void ColorLineEdit::onTextChanged() {

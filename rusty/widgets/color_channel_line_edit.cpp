@@ -4,6 +4,7 @@
 
 #include "rusty/widgets/color_channel_line_edit.h"
 
+#include <QFont>
 #include <QIntValidator>
 #include <QKeyEvent>
 #include <QPainter>
@@ -17,14 +18,17 @@ constexpr int kMaxValue = 255;
 }  // namespace
 
 ColorChannelLineEdit::ColorChannelLineEdit(QWidget* parent) : LineEdit(parent) {
+  this->setMaximumWidth(36);
+  QFont font(this->font());
+  font.setPixelSize(12);
+  font.setWordSpacing(10);
+  this->setFont(font);
+
   auto* validator = new QIntValidator(kMinValue, kMaxValue, this);
   this->setValidator(validator);
-  this->setFixedWidth(36);
 
   connect(this, &ColorChannelLineEdit::editingFinished,
           this, &ColorChannelLineEdit::onTextChanged);
-
-  // style: color-line-edit.css
 }
 
 int ColorChannelLineEdit::value() const {

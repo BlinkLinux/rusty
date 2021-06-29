@@ -6,5 +6,6 @@
     <file>combo-box-dropdown.svg</file>
     <file>combo-box-up-arrow.svg</file>
     <file>receptor.svg</file>
+    <file>shape-palette.json</file>
   </qresource>
 </RCC>

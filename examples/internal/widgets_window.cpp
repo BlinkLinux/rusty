@@ -80,7 +80,7 @@ void WidgetsWindow::initMiscTab() {
 
   auto* color_chooser_btn = new ColorChooserButton();
   bool ok = true;
-  const auto color_palette = parseColorPalette(kResourcesCanvasPalette, &ok);
+  const auto color_palette = parseColorPalette(kResourcesShapePalette, &ok);
   Q_ASSERT(ok);
   color_chooser_btn->setColorPalette(color_palette);
   color_chooser_btn->setFixedSize(64, 24);
