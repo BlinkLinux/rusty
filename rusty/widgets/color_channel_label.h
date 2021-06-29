@@ -12,7 +12,6 @@ namespace rusty {
 class ColorChannelLabel : public QLabel {
   Q_OBJECT
  public:
-  explicit ColorChannelLabel(QWidget* parent = nullptr);
   explicit ColorChannelLabel(const QString& text, QWidget* parent = nullptr);
   ~ColorChannelLabel() override = default;
 };

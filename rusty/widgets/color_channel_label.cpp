@@ -5,17 +5,14 @@
 #include "rusty/widgets/color_channel_label.h"
 
 #include <QDebug>
-#include <QPainter>
-#include <QStyle>
+#include <QFont>
 
 namespace rusty {
 
-ColorChannelLabel::ColorChannelLabel(QWidget* parent) : QLabel(parent) {
-
-}
-
 ColorChannelLabel::ColorChannelLabel(const QString& text, QWidget* parent) : QLabel(text, parent) {
-
+  QFont font(this->font());
+  font.setPixelSize(10);
+  this->setFont(font);
 }
 
 }  // namespace rusty
