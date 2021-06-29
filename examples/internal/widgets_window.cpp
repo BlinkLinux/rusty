@@ -79,6 +79,10 @@ void WidgetsWindow::initMiscTab() {
   theme_layout->addWidget(null_switch);
 
   auto* color_chooser_btn = new ColorChooserButton();
+  bool ok = true;
+  const auto color_palette = parseColorPalette(kResourcesCanvasPalette, &ok);
+  Q_ASSERT(ok);
+  color_chooser_btn->setColorPalette(color_palette);
   color_chooser_btn->setFixedSize(64, 24);
   color_chooser_btn->setColor(QColor("#990e44"));
   main_layout->addWidget(color_chooser_btn);
