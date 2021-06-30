@@ -14,3 +14,7 @@
 	path = rusty/third_party/googletest
 	url = https://github.com/RustyProject/googletest
 	branch = rusty
+[submodule "rusty/third_party/zlib"]
+	path = rusty/third_party/zlib
+	url = https://github.com/RustyProject/zlib
+	branch = rusty
