@@ -18,3 +18,7 @@
 	path = rusty/third_party/zlib
 	url = https://github.com/RustyProject/zlib
 	branch = rusty
+[submodule "rusty/third_party/quazip"]
+	path = rusty/third_party/quazip
+	url = https://github.com/RustyProject/quazip
+	branch = rusty
