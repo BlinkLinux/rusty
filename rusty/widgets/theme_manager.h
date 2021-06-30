@@ -13,7 +13,8 @@ namespace rusty {
 
 class ThemeManager : public QObject {
   Q_OBJECT
-  Q_PROPERTY(ThemeType themeType READ themeType WRITE setThemeType NOTIFY themeTypeChanged);
+  Q_PROPERTY(ThemeType themeType READ themeType WRITE setThemeType NOTIFY themeTypeChanged)
+
  public:
   enum ThemeType {
     kLightTheme,

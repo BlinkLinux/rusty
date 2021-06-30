@@ -11,6 +11,7 @@ namespace rusty {
 
 class WidgetsWindow : public QTabWidget {
   Q_OBJECT
+
  public:
   explicit WidgetsWindow(QWidget* parent = nullptr);
   ~WidgetsWindow() override = default;

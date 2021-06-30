@@ -15,6 +15,7 @@ namespace rusty {
 
 class SoftwareLicenseWindow : public QWidget {
   Q_OBJECT
+
  public:
   explicit SoftwareLicenseWindow(QWidget* parent = nullptr);
   ~SoftwareLicenseWindow() override = default;

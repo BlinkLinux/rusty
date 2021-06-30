@@ -11,6 +11,7 @@ namespace rusty {
 
 class IconButton : public QPushButton {
   Q_OBJECT
+
  public:
   explicit IconButton(const QString& icon_name, QWidget* parent = nullptr);
   ~IconButton() override = default;

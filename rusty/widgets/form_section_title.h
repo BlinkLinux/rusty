@@ -11,6 +11,7 @@ namespace rusty {
 
 class FormSectionTitle : public QLabel {
   Q_OBJECT
+
  public:
   explicit FormSectionTitle(const QString& text, QWidget* parent = nullptr);
   ~FormSectionTitle() override = default;

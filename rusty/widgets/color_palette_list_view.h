@@ -14,6 +14,7 @@ namespace rusty {
 
 class ColorPaletteListView : public QListView {
   Q_OBJECT
+
  public:
   explicit ColorPaletteListView(QWidget* parent = nullptr);
   ~ColorPaletteListView() override = default;

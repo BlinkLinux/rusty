@@ -11,8 +11,10 @@ namespace rusty {
 
 class ColorPaletteDelegate : public QStyledItemDelegate{
   Q_OBJECT
+
  public:
   explicit ColorPaletteDelegate(QObject* parent = nullptr);
+  ~ColorPaletteDelegate() override = default;
 
   void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override;
 

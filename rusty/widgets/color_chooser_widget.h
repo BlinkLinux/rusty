@@ -19,6 +19,7 @@ namespace rusty {
 class ColorChooserWidget : public QWidget {
   Q_OBJECT
   Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
+
  public:
   explicit ColorChooserWidget(QWidget* parent = nullptr);
   ~ColorChooserWidget() override = default;

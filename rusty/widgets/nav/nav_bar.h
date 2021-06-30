@@ -12,8 +12,10 @@ namespace rusty {
 
 class NavBar : public QFrame {
   Q_OBJECT
+
  public:
   explicit NavBar(QWidget* parent = nullptr);
+  ~NavBar() override = default;
 
  public slots:
   void pushTab(const QString& label);

@@ -12,6 +12,7 @@ namespace rusty {
 class ColorLineEdit : public LineEdit {
   Q_OBJECT
   Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
+
  public:
   explicit ColorLineEdit(QWidget* parent = nullptr);
   ~ColorLineEdit() override = default;

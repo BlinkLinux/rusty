@@ -15,8 +15,7 @@ class AdwaitaStyle : public Adwaita::Style {
 
  public:
   explicit AdwaitaStyle(bool night_mode);
-  ~AdwaitaStyle();
-
+  ~AdwaitaStyle() override;
 };
 
 }  // namespace rusty

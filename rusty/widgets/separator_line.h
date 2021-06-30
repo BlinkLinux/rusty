@@ -13,6 +13,7 @@ namespace rusty {
 class SeparatorLine : public QFrame {
   Q_OBJECT
   Q_PROPERTY(Qt::Orientation orientation READ orientation WRITE setOrientation)
+
  public:
   explicit SeparatorLine(Qt::Orientation orientation, QWidget* parent = nullptr);
   ~SeparatorLine() override = default;

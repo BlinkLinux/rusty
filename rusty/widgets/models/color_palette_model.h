@@ -13,8 +13,10 @@ namespace rusty {
 
 class ColorPaletteModel : public QAbstractListModel {
   Q_OBJECT
+
  public:
   explicit ColorPaletteModel(QObject* parent = nullptr);
+  ~ColorPaletteModel() override = default;
 
   [[nodiscard]] int rowCount(const QModelIndex& parent) const override;
 

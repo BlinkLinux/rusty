@@ -14,6 +14,7 @@ namespace rusty {
 
 class LeftPanelButtons : public QFrame {
   Q_OBJECT
+
  public:
   explicit LeftPanelButtons(QWidget* parent = nullptr);
   ~LeftPanelButtons() override = default;

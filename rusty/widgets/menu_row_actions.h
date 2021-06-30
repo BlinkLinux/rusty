@@ -14,6 +14,7 @@ namespace rusty {
 
 class MenuRowActions : public QWidgetAction {
   Q_OBJECT
+
  public:
   explicit MenuRowActions(QObject* parent = nullptr);
   ~MenuRowActions() override = default;

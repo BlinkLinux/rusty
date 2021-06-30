@@ -11,6 +11,7 @@ namespace rusty {
 
 class CustomStyle : public AdwaitaStyle {
   Q_OBJECT
+
  public:
   explicit CustomStyle(bool dark);
   ~CustomStyle() override = default;

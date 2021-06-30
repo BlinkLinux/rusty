@@ -11,6 +11,7 @@ namespace rusty {
 
 class GrayscaleEffect : public QGraphicsEffect {
   Q_OBJECT
+
  public:
   explicit GrayscaleEffect(QObject* parent = nullptr);
   ~GrayscaleEffect() override = default;

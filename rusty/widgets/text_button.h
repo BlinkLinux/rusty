@@ -13,11 +13,10 @@ class TextButton : public QLabel {
   Q_OBJECT
   Q_PROPERTY(bool activated READ activated WRITE setActivated)
   Q_PROPERTY(int index READ index WRITE setIndex)
+
  public:
   explicit TextButton(QWidget* parent = nullptr);
-
   explicit TextButton(const QString& text, QWidget* parent = nullptr);
-
   ~TextButton() override = default;
 
   [[nodiscard]] bool activated() const { return this->activated_; }

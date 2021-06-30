@@ -11,6 +11,7 @@ namespace rusty {
 
 class ColorValidator : public QValidator {
   Q_OBJECT
+
  public:
   explicit ColorValidator(QObject* parent = nullptr);
   ~ColorValidator() override = default;

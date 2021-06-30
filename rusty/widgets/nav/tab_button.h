@@ -10,7 +10,8 @@
 namespace rusty {
 
 class TabButton : public QPushButton {
- Q_OBJECT
+  Q_OBJECT
+
  public:
   TabButton(const QString& icon_name, const QString& text, QWidget* parent = nullptr);
   ~TabButton() override = default;

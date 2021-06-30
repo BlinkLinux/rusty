@@ -13,6 +13,7 @@ namespace rusty {
 
 class SoftwareLicenseModel : public QAbstractTableModel {
   Q_OBJECT
+
  public:
   enum RoleList : int32_t {
     kNameRole = Qt::UserRole + 1,
