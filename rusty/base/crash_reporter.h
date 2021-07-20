@@ -18,10 +18,11 @@ class CrashReporter {
   ~CrashReporter();
 
   void setDumpDir(const QString& path);
-  const QString& dumpDir() const;
+  const QString& dumpDir() const { return this->dump_dir_; }
 
  private:
   CrashReporterPrivate* p_;
+  QString dump_dir_{};
 };
 
 /**
