@@ -103,32 +103,24 @@ uint8_t clampCssByte(T i) {
 
 // Clamp to float 0.0 .. 1.0.
 template<typename T>
-float clamp_css_float(T f) {
-  return f < 0 ? 0 : f > 1 ? 1 : float(f);
-}
-
-float parseFloat(const char* str) {
-  return ::strtof(str, nullptr);
-}
-
-int64_t parseInt(const char* str, uint8_t base = 10) {
-  return ::strtoll(str, nullptr, base);
+float clampCssFloat(T f) {
+  return (f < 0) ? 0 : ((f > 1) ? 1 : float(f));
 }
 
 // int or percentage.
-uint8_t parse_css_int(const std::string& str) {
-  if (!str.empty() && str.back() == '%') {
-    return clampCssByte(parseFloat(str.c_str()) / 100.0F * 255.0);
+uint8_t parseCssInt(const QString& str) {
+  if (!str.isEmpty() && str.back() == '%') {
+    return clampCssByte(str.leftRef(str.size() - 1).toFloat() / 100.0F * 255.0F);
   }
-  return clampCssByte(parseInt(str.c_str()));
+  return clampCssByte(str.toInt());
 }
 
 // float or percentage.
-float parseCssFloat(const std::string& str) {
-  if (!str.empty() && str.back() == '%') {
-    return clamp_css_float(parseFloat(str.c_str()) / 100.0F);
+float parseCssFloat(const QString& str) {
+  if (!str.isEmpty() && str.back() == '%') {
+    return clampCssFloat(str.leftRef(str.size() - 1).toFloat() / 100.0F);
   }
-  return clamp_css_float(parseFloat(str.c_str()));
+  return clampCssFloat(str.toFloat());
 }
 
 float cssHueToRgb(float m1, float m2, float h) {
@@ -150,27 +142,21 @@ float cssHueToRgb(float m1, float m2, float h) {
   return m1;
 }
 
-std::vector<std::string> splitByChar(const std::string& s, char delim) {
-  std::vector<std::string> elements;
-  std::stringstream ss(s);
-  std::string item;
-  while (std::getline(ss, item, delim)) {
-    elements.push_back(item);
-  }
-  return elements;
-}
-
 }  // namespace
 
 QColor parseColor(QString val) {
   // Remove all whitespace, not compliant, but should just be more accepting.
   val.remove(' ');
 
+  if (val.isEmpty()) {
+    return {};
+  }
+
   // Convert to lowercase.
-  std::string str = val.toLower().toStdString();
+  val = val.toLower();
 
   for (const auto& namedColor : gNamedColors) {
-    if (str == namedColor.name) {
+    if (val == namedColor.name) {
       return namedColor.color;
     }
   }
@@ -178,10 +164,11 @@ QColor parseColor(QString val) {
   constexpr int kAlphaMax = 255;
 
   // #abc and #abc123 syntax.
-  if (!str.empty() && str.front() == '#') {
-    if (str.length() == 4) {
-      int64_t iv = parseInt(str.substr(1).c_str(), 16);
-      if (!(iv >= 0 && iv <= 0xfff)) {
+  bool ok = true;
+  if (val.front() == '#') {
+    if (val.length() == 4) {
+      const int64_t iv = val.mid(1).toLongLong(&ok, 16);
+      if (!ok || !(iv >= 0 && iv <= 0xfff)) {
         return {};
       }
       return {
@@ -193,9 +180,9 @@ QColor parseColor(QString val) {
 
     }
 
-    if (str.length() == 7) {
-      int64_t iv = parseInt(str.substr(1).c_str(), 16);
-      if (!(iv >= 0 && iv <= 0xffffff)) {
+    if (val.length() == 7) {
+      const int64_t iv = val.mid(1).toLongLong(&ok, 16);
+      if (!ok || !(iv >= 0 && iv <= 0xffffff)) {
         // Covers NaN.
         return {};
       }
@@ -210,14 +197,17 @@ QColor parseColor(QString val) {
     return {};
   }
 
-  size_t op = str.find_first_of('(');
-  size_t ep = str.find_first_of(')');
-  if (op != std::string::npos && ep + 1 == str.length()) {
-    const std::string format_name = str.substr(0, op);
-    const std::vector<std::string> params = splitByChar(str.substr(op + 1, ep - (op + 1)), ',');
+  const int op = val.indexOf('(');
+  const int ep = val.indexOf(')');
+  // Parse prefix(...) patterns.
+  if (op != -1 && ep + 1 == val.length()) {
+    const QString format_name = val.mid(0, op);
+    const QString nums = val.mid(op + 1, ep - (op + 1));
+    const QStringList params = nums.split(',');
 
     float alpha = 1.0F;
 
+    // Parse rgb(...).
     if (format_name == "rgba" || format_name == "rgb") {
       if (format_name == "rgba") {
         if (params.size() != 4) {
@@ -231,13 +221,14 @@ QColor parseColor(QString val) {
       }
 
       return {
-          parse_css_int(params[0]),
-          parse_css_int(params[1]),
-          parse_css_int(params[2]),
+          parseCssInt(params.at(0)),
+          parseCssInt(params.at(1)),
+          parseCssInt(params.at(2)),
           static_cast<int>(alpha * kAlphaMax),
       };
     }
 
+    // Parse hsla(...).
     if (format_name == "hsla" || format_name == "hsl") {
       if (format_name == "hsla") {
         if (params.size() != 4) {
@@ -250,13 +241,13 @@ QColor parseColor(QString val) {
         }
       }
 
-      float h = parseFloat(params[0].c_str()) / 360.0F;
+      float h = params.at(0).toFloat() / 360.0F;
       float i;
-      // Normalize the hue to [0..1[
+      // Normalize the hue to [0..1]
       h = std::modf(h, &i);
 
-      float s = parseCssFloat(params[1]);
-      float l = parseCssFloat(params[2]);
+      float s = parseCssFloat(params.at(1));
+      float l = parseCssFloat(params.at(2));
 
       float m2 = l <= 0.5F ? l * (s + 1.0F) : l + s - l * s;
       float m1 = l * 2.0F - m2;
