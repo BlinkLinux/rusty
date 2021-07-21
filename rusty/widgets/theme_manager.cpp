@@ -70,8 +70,8 @@ void ThemeManager::registerAction(QAction* action, const QString& icon_name) {
       action->setIcon(QIcon(last_icon_name));
     }
   });
-  connect(action, &QAction::destroyed, [conn]() {
-    disconnect(conn);
+  connect(action, &QAction::destroyed, [this, conn]() {
+    this->disconnect(conn);
   });
 }
 
@@ -86,8 +86,8 @@ void ThemeManager::registerWidget(QObject* object, const QString& icon_name, The
     }
     callback(changed, last_icon_name);
   });
-  connect(object, &QAction::destroyed, [conn]() {
-    disconnect(conn);
+  connect(object, &QAction::destroyed, [this, conn]() {
+    this->disconnect(conn);
   });
 }
 
