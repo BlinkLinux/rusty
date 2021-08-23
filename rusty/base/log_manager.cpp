@@ -43,7 +43,11 @@ LogManager::LogManager() : p_(new LogManagerPrivate()) {
   QDir dir = getCacheDir();
   const QString app_name = qApp->applicationName();
   this->p_->log_path = dir.absoluteFilePath(QString("%1.log").arg(app_name));
-  this->p_->log_format = "%{time}{HH:mm::ss.zzz} [%{type} %{file}:%{line}] %{message}\n";
+#ifndef NDEBUG
+  this->p_->log_format = "%{time}{yyyy-MM-ddTHH:mm::ss.zzz} [%{type} %{file}:%{line}] %{message}\n";
+#else
+  this->p_->log_format = "%{time}{yyyy-MM-ddTHH:mm:ss.zzz} [%{type} %{function}] %{message}\n";
+#endif
 }
 
 LogManager::~LogManager() {
