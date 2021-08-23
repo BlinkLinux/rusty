@@ -114,6 +114,7 @@ elseif(WIN32)
 endif(UNIX)
 
 set(TEST_FILES
+    rusty/base/log_manager_test.cpp
     rusty/formats/tests/tests.qrc
     rusty/formats/color_palette_test.cpp
 
