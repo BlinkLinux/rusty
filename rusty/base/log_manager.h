@@ -12,22 +12,31 @@ namespace rusty {
 struct LogManagerPrivate;
 class LogManager {
  public:
+  enum class LogLevel : uint8_t {
+    Trace,
+    Debug,
+    Info,
+    Warning,
+    Error,
+    Fatal
+  };
+
   static LogManager* instance();
 
   /**
    * Enable console logging.
    */
-  void registerConsoleLog();
+  void registerConsoleLog(LogLevel level);
 
   /**
    * Enable file logging.
    */
-  void registerFileLog();
+  void registerFileLog(LogLevel level);
 
   /**
    * @param file_limit, rolling log file limits
    */
-  void registerFileLog(int file_limit);
+  void registerFileLog(LogLevel level, int file_limit);
 
   /**
    * Set log format for all of registered log appender.
