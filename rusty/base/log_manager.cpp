@@ -69,9 +69,8 @@ void LogManager::registerFileLog(int file_limit) {
   if (this->p_->file_appender != nullptr) {
     cuteLoggerInstance()->removeAppender(this->p_->file_appender);
   }
-  this->p_->file_appender = new RollingFileAppender();
+  this->p_->file_appender = new RollingFileAppender(this->p_->log_path);
   this->p_->file_appender->setFormat(this->p_->log_format);
-  this->p_->file_appender->setFileName(this->p_->log_path);
   this->p_->file_appender->setLogFilesLimit(file_limit);
   this->p_->file_appender->setDatePattern(RollingFileAppender::DailyRollover);
   cuteLoggerInstance()->registerAppender(this->p_->file_appender);
