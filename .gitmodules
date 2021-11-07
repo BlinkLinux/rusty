@@ -1,6 +1,6 @@
 [submodule "rusty/third_party/CuteLogger"]
 	path = rusty/third_party/CuteLogger
-	url = https://github.com/RustyProject/CuteLogger
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/CuteLogger
 	branch = rusty
 [submodule "rusty/third_party/breakpad"]
 	path = rusty/third_party/breakpad
@@ -12,7 +12,7 @@
 	branch = rusty
 [submodule "rusty/third_party/googletest"]
 	path = rusty/third_party/googletest
-	url = https://github.com/RustyProject/googletest
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/googletest
 	branch = rusty
 [submodule "rusty/third_party/zlib"]
 	path = rusty/third_party/zlib
