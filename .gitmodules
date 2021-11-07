@@ -4,11 +4,11 @@
 	branch = rusty
 [submodule "rusty/third_party/breakpad"]
 	path = rusty/third_party/breakpad
-	url = https://github.com/RustyProject/breakpad
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/breakpad
 	branch = rusty
 [submodule "rusty/third_party/adwaita-qt"]
 	path = rusty/third_party/adwaita-qt
-	url = https://github.com/RustyProject/adwaita-qt
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/adwaita-qt
 	branch = rusty
 [submodule "rusty/third_party/googletest"]
 	path = rusty/third_party/googletest
@@ -16,9 +16,9 @@
 	branch = rusty
 [submodule "rusty/third_party/zlib"]
 	path = rusty/third_party/zlib
-	url = https://github.com/RustyProject/zlib
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/zlib
 	branch = rusty
 [submodule "rusty/third_party/quazip"]
 	path = rusty/third_party/quazip
-	url = https://github.com/RustyProject/quazip
+	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/quazip
 	branch = rusty
