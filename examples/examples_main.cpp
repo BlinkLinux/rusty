@@ -10,7 +10,7 @@
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
-  rusty::LogManager::instance()->registerConsoleLog();
+  rusty::LogManager::instance()->registerConsoleLog(rusty::LogManager::LogLevel::Info);
   QApplication::setStyle(new rusty::AdwaitaStyle(true));
 
   rusty::WidgetsWindow window;
