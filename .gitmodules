@@ -14,10 +14,6 @@
 	path = rusty/third_party/googletest
 	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/googletest
 	branch = rusty
-[submodule "rusty/third_party/zlib"]
-	path = rusty/third_party/zlib
-	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/zlib
-	branch = rusty
 [submodule "rusty/third_party/quazip"]
 	path = rusty/third_party/quazip
 	url = ssh://liulang@git.biofan.org:50122/poolz2/liulang/backup/dev/RustyProject/quazip
