@@ -7,19 +7,11 @@ find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-add_subdirectory(rusty/third_party/zlib)
 add_subdirectory(rusty/third_party/adwaita-qt)
-add_subdirectory(rusty/third_party/breakpad)
-add_subdirectory(rusty/third_party/CuteLogger)
-add_subdirectory(rusty/third_party/quazip)
 
 set(SOURCE_FILES
-    rusty/base/crash_reporter.cpp
-    rusty/base/crash_reporter.h
     rusty/base/file.cpp
     rusty/base/file.h
-    rusty/base/log_manager.cpp
-    rusty/base/log_manager.h
     rusty/base/process.cpp
     rusty/base/process.h
 
@@ -99,22 +91,21 @@ set(SOURCE_FILES
     rusty/widgets/utils.h
     )
 
-if (UNIX)
-  set(SOURCE_FILES
-      "${SOURCE_FILES}"
-
-      rusty/base/crash_reporter_linux.cpp
-      )
-elseif(WIN32)
-  set(SOURCE_FILES
-      "${SOURCE_FILES}"
-
-      rusty/base/crash_reporter_win.cpp
-      )
-endif(UNIX)
+#if (UNIX)
+#  set(SOURCE_FILES
+#      "${SOURCE_FILES}"
+#
+#      rusty/base/crash_reporter_linux.cpp
+#      )
+#elseif(WIN32)
+#  set(SOURCE_FILES
+#      "${SOURCE_FILES}"
+#
+#      rusty/base/crash_reporter_win.cpp
+#      )
+#endif(UNIX)
 
 set(TEST_FILES
-    rusty/base/log_manager_test.cpp
     rusty/formats/tests/tests.qrc
     rusty/formats/color_palette_test.cpp
 
@@ -133,8 +124,6 @@ set(LINK_LIBS
     Qt5::Widgets
 
     adwaita-qt-static
-    breakpad_static
-    CuteLogger
     )
 
 add_library(rusty-static STATIC
@@ -154,14 +143,14 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
 endif ()
 
 if (BUILD_TESTING)
-  add_subdirectory(rusty/third_party/googletest)
+  find_package(GTest REQUIRED)
   add_executable(rusty-tests
       ${TEST_FILES}
       )
   target_link_libraries(rusty-tests
       Qt5::Core
       Qt5::Svg
-      gtest
+      GTest::GTest
 
       rusty-static
       )

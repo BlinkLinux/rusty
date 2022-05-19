@@ -11,14 +11,14 @@ set(SOURCE_FILES
     internal/widgets_window.h
     )
 
-add_executable(crash-demo
-    crash_demo.cpp
-    )
-target_link_libraries(crash-demo
-    Qt5::Core
-
-    rusty-static
-    )
+#add_executable(crash-demo
+#    crash_demo.cpp
+#    )
+#target_link_libraries(crash-demo
+#    Qt5::Core
+#
+#    rusty-static
+#    )
 
 add_executable(examples-main
     examples_main.cpp
