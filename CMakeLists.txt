@@ -3,7 +3,7 @@ project(rusty VERSION 0.3.1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(Qt5 5.11 COMPONENTS Core Gui Svg Widgets REQUIRED)
+find_package(Qt5 5.11 COMPONENTS Svg Widgets OpenGL REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -26,6 +26,9 @@ set(SOURCE_FILES
     rusty/gui/image.h
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
+
+    rusty/opengl/fps_counter.cpp
+    rusty/opengl/fps_counter.h
 
     rusty/widgets/color_channel_label.cpp
     rusty/widgets/color_channel_label.h
@@ -100,10 +103,9 @@ set(TEST_FILES
     )
 
 set(LINK_LIBS
-    Qt5::Core
-    Qt5::Gui
     Qt5::Svg
     Qt5::Widgets
+    Qt5::OpenGL
     )
 
 add_library(rusty-static STATIC
