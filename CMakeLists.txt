@@ -91,20 +91,6 @@ set(SOURCE_FILES
     rusty/widgets/utils.h
     )
 
-#if (UNIX)
-#  set(SOURCE_FILES
-#      "${SOURCE_FILES}"
-#
-#      rusty/base/crash_reporter_linux.cpp
-#      )
-#elseif(WIN32)
-#  set(SOURCE_FILES
-#      "${SOURCE_FILES}"
-#
-#      rusty/base/crash_reporter_win.cpp
-#      )
-#endif(UNIX)
-
 set(TEST_FILES
     rusty/formats/tests/tests.qrc
     rusty/formats/color_palette_test.cpp
