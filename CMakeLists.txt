@@ -3,11 +3,9 @@ project(rusty VERSION 0.3.1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(Qt5 5.12 COMPONENTS Core Gui Svg Widgets REQUIRED)
+find_package(Qt5 5.11 COMPONENTS Core Gui Svg Widgets REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
-add_subdirectory(rusty/third_party/adwaita-qt)
 
 set(SOURCE_FILES
     rusty/base/file.cpp
@@ -29,8 +27,6 @@ set(SOURCE_FILES
     rusty/gui/theme_file.cpp
     rusty/gui/theme_file.h
 
-    rusty/widgets/adwaita_style.cpp
-    rusty/widgets/adwaita_style.h
     rusty/widgets/color_channel_label.cpp
     rusty/widgets/color_channel_label.h
     rusty/widgets/color_channel_line_edit.cpp
@@ -108,8 +104,6 @@ set(LINK_LIBS
     Qt5::Gui
     Qt5::Svg
     Qt5::Widgets
-
-    adwaita-qt-static
     )
 
 add_library(rusty-static STATIC
