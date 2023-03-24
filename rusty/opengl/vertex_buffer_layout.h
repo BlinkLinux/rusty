@@ -1,5 +1,5 @@
 // Copyright (c) 2023 Xu Shaohua <shaohua@biofan.org>. All rights reserved.
-// Use of this source is governed by GNU General Public License
+// Use of this source is governed by GNU Lesser General Public License
 // that can be found in the LICENSE file.
 
 #ifndef RUSTY_RUSTY_OPENGL_VERTEX_BUFFER_LAYOUT_H_

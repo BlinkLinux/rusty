@@ -8,6 +8,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(SOURCE_FILES
+    rusty/base/c_string_list.cpp
+    rusty/base/c_string_list.h
     rusty/base/file.cpp
     rusty/base/file.h
     rusty/base/process.cpp
