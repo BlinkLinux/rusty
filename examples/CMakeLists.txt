@@ -5,8 +5,6 @@ set(SOURCE_FILES
     resources/resources.qrc
     resources/resources.h
 
-    internal/custom_style.cpp
-    internal/custom_style.h
     internal/widgets_window.cpp
     internal/widgets_window.h
     )

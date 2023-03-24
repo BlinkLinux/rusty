@@ -3,13 +3,11 @@
 // that can be found in the LICENSE file.
 
 #include <QApplication>
-#include <rusty/widgets/adwaita_style.h>
 
 #include "internal/widgets_window.h"
 
 int main(int argc, char** argv) {
   QApplication application(argc, argv);
-  QApplication::setStyle(new rusty::AdwaitaStyle(true));
 
   rusty::WidgetsWindow window;
   window.resize(960, 640);

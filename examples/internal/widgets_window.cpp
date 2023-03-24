@@ -11,7 +11,6 @@
 #include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <rusty/widgets/adwaita_style.h>
 #include <rusty/widgets/grayscale_effect.h>
 #include <rusty/widgets/menu_row_actions.h>
 #include <rusty/widgets/nav/nav_bar.h>
@@ -71,9 +70,6 @@ void WidgetsWindow::initMiscTab() {
   auto* night_mode_switch = new SwitchButton();
   theme_layout->addWidget(night_mode_switch);
   theme_layout->addStretch();
-  connect(night_mode_switch, &SwitchButton::toggled, [](bool checked) {
-    QApplication::setStyle(new AdwaitaStyle(checked));
-  });
 
   auto* null_switch = new SwitchButton();
   theme_layout->addWidget(null_switch);
