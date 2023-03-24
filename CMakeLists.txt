@@ -29,6 +29,8 @@ set(SOURCE_FILES
 
     rusty/opengl/fps_counter.cpp
     rusty/opengl/fps_counter.h
+    rusty/opengl/vertex_buffer_layout.cpp
+    rusty/opengl/vertex_buffer_layout.h
 
     rusty/widgets/color_channel_label.cpp
     rusty/widgets/color_channel_label.h
